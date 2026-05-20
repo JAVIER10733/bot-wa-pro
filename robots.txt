@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /servicios.html
+Allow: /planes.html
+Allow: /testimonios.html
+Allow: /blog.html
+Allow: /contacto.html
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /cliente/
+Disallow: /storage/
+Disallow: /cron/
+Disallow: /webhooks/
+
+Sitemap: https://botwa.pro/sitemap.xml

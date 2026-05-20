@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Testimonios | BotWA Pro</title>
+    <meta name="description"
+        content="Clientes reales que automatizaron su WhatsApp con BotWA Pro. Lee sus historias y resultados.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://botwa.pro/testimonios.html">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/testimonials.css">
+</head>
+
+<body>
+
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader-circle"></div>
+        <span class="sr-only">Cargando...</span>
+    </div>
+
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <div class="bg-animation" aria-hidden="true">
+        <div class="floating-orb orb1"></div>
+        <div class="floating-orb orb2"></div>
+        <div class="floating-orb orb3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" role="navigation" aria-label="Menú principal">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="BotWA Pro - Inicio">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                BotWA Pro
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="servicios.html" role="menuitem">Servicios</a></li>
+                <li role="none"><a href="planes.html" role="menuitem">Planes</a></li>
+                <li role="none"><a href="testimonios.html" role="menuitem" aria-current="page">Testimonios</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="contacto.html" role="menuitem">Contacto</a></li>
+                <li role="none"><a href="auth/login.html" role="menuitem">Iniciar sesión</a></li>
+            </ul>
+            <a href="https://wa.me/593991459589?text=Hola,%20quiero%20información%20sobre%20los%20servidores"
+                class="nav-cta" onclick="showToast('¡Abriendo WhatsApp!')" target="_blank" rel="noopener noreferrer"
+                aria-label="Contactar por WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Contactar
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú"
+                aria-expanded="false" aria-controls="navLinks">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- Hero de la página -->
+        <section class="page-hero" aria-labelledby="page-title">
+            <div class="container">
+                <div class="page-hero-content">
+                    <span class="hero-badge">⭐ +200 clientes satisfechos</span>
+                    <h1 id="page-title">Lo que dicen <span class="gradient-text">nuestros clientes</span></h1>
+                    <p>Emprendedores y empresas de Latinoamérica que escalan sus operaciones con nuestros servidores
+                        para WhatsApp</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats rápidos -->
+        <section class="stats" aria-label="Estadísticas de satisfacción">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="200">0</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="4.9">0</div>
+                        <div class="stat-label">Calificación Promedio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="98">0</div>
+                        <div class="stat-label">% Recomendarían</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Min Respuesta Soporte</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios grid completo -->
+        <!-- Componente dinámico de testimonios -->
+        <div id="testimonials-container"></div>
+
+        <!-- CTA final -->
+        <section class="cta" aria-labelledby="cta-title">
+            <div class="cta-content">
+                <h2 id="cta-title">¿Tu negocio podría ser el próximo caso de éxito?</h2>
+                <p>Únete a más de 200 clientes que ya automatizan su WhatsApp con BotWA Pro</p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="https://wa.me/593991459589?text=Hola,%20quiero%20comprar%20un%20servidor%20para%20WhatsApp"
+                        class="btn-primary" onclick="showToast('¡Abriendo WhatsApp!')" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Empezar ahora
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="planes.html" class="btn-secondary">
+                        <i class="fas fa-server" aria-hidden="true"></i> Ver planes
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" class="logo">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> BotWA Pro
+                </a>
+                <p>Servidores especializados para automatización de WhatsApp Business. Soporte desde Ecuador para toda
+                    Latinoamérica.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/593991459589" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Telegram">
+                        <i class="fab fa-telegram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Producto</h4>
+                <ul>
+                    <li><a href="planes.html">Planes y precios</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="comparativa.html">Comparativa</a></li>
+                    <li><a href="demo.html">Demo en vivo</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="afiliados.html">Afiliados</a></li>
+                    <li><a href="faq.html">Preguntas frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Soporte y Legal</h4>
+                <ul>
+                    <li><a href="soporte.html">Centro de soporte</a></li>
+                    <li><a href="terminos.html">Términos de uso</a></li>
+                    <li><a href="privacidad.html">Privacidad</a></li>
+                    <li><a href="reembolso.html">Reembolsos</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2025</span> BotWA Pro. Todos los derechos reservados.</p>
+            <div class="payment-icons">
+                <img src="assets/img/pagos/visa.png" alt="Visa" width="40" height="25" loading="lazy">
+                <img src="assets/img/pagos/mastercard.png" alt="Mastercard" width="40" height="25" loading="lazy">
+                <img src="assets/img/pagos/paypal.png" alt="PayPal" width="40" height="25" loading="lazy">
+                <img src="assets/img/pagos/stripe.png" alt="Stripe" width="40" height="25" loading="lazy">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-icon" aria-hidden="true">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-message" id="toastMessage">¡Acción completada!</div>
+    </div>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/testimonials.js"></script>
+
+</body>
+
+</html>

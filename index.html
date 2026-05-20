@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotWA Pro | Servidores para WhatsApp Business en Ecuador</title>
+    <meta name="description" content="Servidores especializados para WhatsApp Business: APIs, multi-dispositivo, automatización y soporte 24/7 desde Ecuador.">
+    <meta name="keywords" content="servidores whatsapp, whatsapp business api, automatizacion whatsapp, baileys, wppconnect, ecuador">
+    <meta name="author" content="BotWA Pro">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#25D366">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://botwa.pro/">
+    <meta property="og:title" content="BotWA Pro | Servidores para WhatsApp Business">
+    <meta property="og:description" content="Infraestructura especializada para automatizar WhatsApp sin bloqueos. Soporte 24/7 desde Ecuador.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://botwa.pro/">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Servidores para WhatsApp Business",
+        "brand": "BotWA Pro",
+        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15.00", "availability": "https://schema.org/InStock" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "200" }
+    }
+    </script>
+
+    <style>
+        :root {
+            --wa:     #25d366;
+            --wa-dim: rgba(37,211,102,0.08);
+            --wa-glo: rgba(37,211,102,0.22);
+            --ink:    #090c10;
+            --ink2:   #0d1117;
+            --surf:   rgba(255,255,255,0.03);
+            --surf2:  rgba(255,255,255,0.055);
+            --bdr:    rgba(255,255,255,0.07);
+            --bdr2:   rgba(255,255,255,0.13);
+            --text:   #e8eaf2;
+            --muted:  #6b7280;
+            --soft:   #9ca3af;
+            --fd: 'Syne', sans-serif;
+            --fb: 'DM Sans', sans-serif;
+            --fm: 'JetBrains Mono', monospace;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--fb); background: var(--ink); color: var(--text); overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ---- HERO ---- */
+        .hero-pro {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 0 5rem;
+        }
+        .hero-pro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.032) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 100%);
+        }
+        .hero-pro::after {
+            content: '';
+            position: absolute;
+            width: 900px; height: 600px;
+            background: radial-gradient(ellipse, rgba(37,211,102,0.06) 0%, transparent 70%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .hero-pro .container { position: relative; z-index: 1; }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: rgba(37,211,102,0.07);
+            border: 1px solid rgba(37,211,102,0.16);
+            color: var(--wa);
+            font-family: var(--fm);
+            font-size: 0.71rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+        .dot-live {
+            width: 7px; height: 7px;
+            background: var(--wa);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.4; transform: scale(0.65); }
+        }
+
+        .hero-h1 {
+            font-family: var(--fd);
+            font-size: clamp(2.3rem, 4vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.06;
+            margin-bottom: 1.25rem;
+        }
+        .hero-h1 .green { color: var(--wa); }
+        .hero-h1 .ul-green {
+            position: relative;
+            display: inline-block;
+        }
+        .hero-h1 .ul-green::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -5px;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--wa), transparent);
+            border-radius: 2px;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--soft);
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+        .btn-green {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--wa);
+            color: #080b0e;
+            font-family: var(--fd);
+            font-size: 0.875rem;
+            font-weight: 700;
+            padding: 0.85rem 1.6rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            white-space: nowrap;
+        }
+        .btn-green:hover { background: #1fba56; transform: translateY(-2px); box-shadow: 0 10px 35px var(--wa-glo); }
+
+        .btn-ghost-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: transparent;
+            border: 1px solid var(--bdr2);
+            color: var(--soft);
+            font-family: var(--fd);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.85rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+        .btn-ghost-hero:hover { background: var(--surf2); color: var(--text); }
+
+        .hero-trust { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .trust-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--surf);
+            border: 1px solid var(--bdr);
+            color: var(--soft);
+            font-size: 0.78rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+        }
+        .trust-pill i { color: var(--wa); font-size: 0.7rem; }
+
+        /* Terminal card */
+        .hero-terminal {
+            background: var(--ink2);
+            border: 1px solid var(--bdr2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(37,211,102,0.05);
+            animation: float-card 6s ease-in-out infinite;
+        }
+        @keyframes float-card {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-10px); }
+        }
+        .tbar {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.8rem 1rem;
+            background: rgba(255,255,255,0.025);
+            border-bottom: 1px solid var(--bdr);
+        }
+        .tbar-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .tbar-dot.r { background: #ff5f57; }
+        .tbar-dot.y { background: #febc2e; }
+        .tbar-dot.g { background: #28c840; }
+        .tbar-ttl { flex: 1; text-align: center; font-family: var(--fm); font-size: 0.7rem; color: var(--muted); }
+
+        .tbody { padding: 1.25rem 1.4rem; }
+        .tl { font-family: var(--fm); font-size: 0.77rem; line-height: 2; display: flex; gap: 0.6rem; }
+        .tp { color: var(--wa); flex-shrink: 0; }
+        .tc { color: #e8eaf2; }
+        .to { color: var(--muted); padding-left: 1rem; }
+        .ts { color: var(--wa); padding-left: 1rem; }
+        .tcursor {
+            display: inline-block;
+            width: 7px; height: 13px;
+            background: var(--wa);
+            border-radius: 1px;
+            margin-left: 2px;
+            animation: blink 1.1s step-end infinite;
+            vertical-align: middle;
+        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+        .tstats {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--bdr);
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 0.5rem;
+        }
+        .tstat {
+            text-align: center;
+            padding: 0.6rem 0.3rem;
+            background: var(--surf);
+            border: 1px solid var(--bdr);
+            border-radius: 8px;
+        }
+        .tstat-v { font-family: var(--fd); font-size: 1rem; font-weight: 800; color: var(--wa); display: block; }
+        .tstat-l { font-size: 0.62rem; color: var(--muted); font-family: var(--fm); display: block; margin-top: 0.1rem; }
+
+        /* ---- LOGOS BAND ---- */
+        .logos-band {
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--bdr);
+            border-bottom: 1px solid var(--bdr);
+        }
+        .logos-label {
+            text-align: center;
+            font-family: var(--fm);
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+        .logos-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .logo-tech {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--muted);
+            font-family: var(--fm);
+            font-size: 0.82rem;
+            opacity: 0.55;
+            transition: opacity 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+        .logo-tech:hover { opacity: 1; color: var(--wa); }
+        .logo-tech i { font-size: 1.15rem; }
+
+        /* ---- HOW IT WORKS ---- */
+        .how-section { padding: 6rem 0; }
+        .sec-label {
+            font-family: var(--fm);
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            color: var(--wa);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+        .sec-title {
+            font-family: var(--fd);
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.035em;
+            color: var(--text);
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+        .sec-sub {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 540px;
+        }
+        .sec-header { margin-bottom: 3.5rem; }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 1.25rem;
+            position: relative;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: calc(12.5% + 16px);
+            right: calc(12.5% + 16px);
+            height: 1px;
+            background: linear-gradient(90deg, var(--wa) 0%, rgba(37,211,102,0.08) 100%);
+            z-index: 0;
+        }
+        .step-card {
+            background: var(--surf);
+            border: 1px solid var(--bdr);
+            border-radius: 16px;
+            padding: 1.5rem 1.25rem;
+            position: relative;
+            z-index: 1;
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+        }
+        .step-card:hover { border-color: rgba(37,211,102,0.2); background: var(--surf2); transform: translateY(-3px); }
+        .step-num {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: rgba(37,211,102,0.1);
+            border: 1px solid rgba(37,211,102,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--fd);
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--wa);
+            margin-bottom: 1rem;
+        }
+        .step-card h3 {
+            font-family: var(--fd);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .step-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+        /* ---- FEATURES ---- */
+        .features-pro { padding: 0 0 6rem; }
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1rem;
+        }
+        .feat-card {
+            background: var(--surf);
+            border: 1px solid var(--bdr);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+        }
+        .feat-card:hover { border-color: rgba(37,211,102,0.18); background: var(--surf2); transform: translateY(-3px); }
+        .feat-icon-w {
+            width: 44px; height: 44px;
+            border-radius: 11px;
+            background: rgba(37,211,102,0.08);
+            border: 1px solid rgba(37,211,102,0.14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--wa);
+            margin-bottom: 1.1rem;
+        }
+        .feat-card h3 {
+            font-family: var(--fd);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .feat-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+        /* ---- STATS ---- */
+        .stats-pro {
+            padding: 5rem 0;
+            border-top: 1px solid var(--bdr);
+            border-bottom: 1px solid var(--bdr);
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-pro::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 400px;
+            background: radial-gradient(ellipse, rgba(37,211,102,0.05) 0%, transparent 70%);
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+            pointer-events: none;
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .stat-item { text-align: center; }
+        .stat-val {
+            font-family: var(--fd);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--text);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .stat-val .acc { color: var(--wa); }
+        .stat-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.4; }
+
+        /* ---- TESTIMONIALS ---- */
+        .testi-pro { padding: 6rem 0; }
+        .testi-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .testi-rating { display: flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; color: var(--soft); }
+        .stars { color: #facc15; letter-spacing: 0.05em; }
+        .testi-rating strong { color: var(--text); font-family: var(--fd); }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1rem;
+        }
+        .testi-card {
+            background: var(--surf);
+            border: 1px solid var(--bdr);
+            border-radius: 16px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .testi-card:hover { border-color: var(--bdr2); background: var(--surf2); }
+        .testi-stars { color: #facc15; font-size: 0.8rem; letter-spacing: 0.08em; }
+        .testi-quote {
+            font-size: 0.9rem;
+            color: var(--soft);
+            line-height: 1.75;
+            font-weight: 300;
+            font-style: italic;
+            flex: 1;
+        }
+        .testi-quote::before { content: '\201C'; color: var(--wa); font-style: normal; font-family: var(--fd); font-size: 1.4rem; line-height: 0; vertical-align: -0.4rem; margin-right: 0.2rem; }
+        .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+        .author-av {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(37,211,102,0.2), rgba(37,211,102,0.05));
+            border: 1px solid rgba(37,211,102,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--fd);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--wa);
+            flex-shrink: 0;
+        }
+        .author-name { font-family: var(--fd); font-size: 0.85rem; font-weight: 700; color: var(--text); }
+        .author-role { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
+
+        /* ---- PRICING PREVIEW ---- */
+        .pricing-preview { padding: 0 0 6rem; }
+        .pricing-strip {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1rem;
+        }
+        .pp-card {
+            background: var(--surf);
+            border: 1px solid var(--bdr);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            transition: transform 0.2s, border-color 0.2s;
+            position: relative;
+        }
+        .pp-card:hover { transform: translateY(-4px); border-color: var(--bdr2); }
+        .pp-card.pop {
+            background: linear-gradient(160deg, rgba(37,211,102,0.07) 0%, var(--surf) 70%);
+            border-color: rgba(37,211,102,0.22);
+            box-shadow: 0 0 0 1px rgba(37,211,102,0.1), 0 20px 60px rgba(37,211,102,0.08);
+        }
+        .pop-label {
+            position: absolute;
+            top: -13px; left: 50%;
+            transform: translateX(-50%);
+            background: var(--wa);
+            color: #080b0e;
+            font-family: var(--fd);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.9rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .pp-name { font-family: var(--fd); font-size: 1rem; font-weight: 700; color: var(--text); }
+        .pp-price {
+            font-family: var(--fd);
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--text);
+            line-height: 1;
+        }
+        .pp-card.pop .pp-price { color: var(--wa); }
+        .pp-price span { font-size: 0.85rem; color: var(--muted); font-weight: 300; }
+        .pp-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .pp-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--soft);
+            font-weight: 300;
+        }
+        .pp-features li i { color: var(--wa); font-size: 0.6rem; flex-shrink: 0; }
+        .pp-btn {
+            display: block;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 9px;
+            font-family: var(--fd);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            margin-top: auto;
+        }
+        .pp-btn.outline { border: 1px solid var(--bdr2); color: var(--soft); background: transparent; }
+        .pp-btn.outline:hover { background: var(--surf2); color: var(--text); }
+        .pp-btn.solid { background: var(--wa); color: #080b0e; box-shadow: 0 4px 20px var(--wa-glo); }
+        .pp-btn.solid:hover { background: #1fba56; transform: translateY(-2px); box-shadow: 0 8px 30px var(--wa-glo); }
+
+        /* ---- CTA FINAL ---- */
+        .cta-final {
+            padding: 0 0 6rem;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(37,211,102,0.07) 0%, rgba(37,211,102,0.02) 50%, var(--surf) 100%);
+            border: 1px solid rgba(37,211,102,0.14);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(37,211,102,0.07) 0%, transparent 70%);
+            top: -100px; left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+        .cta-box h2 {
+            font-family: var(--fd);
+            font-size: clamp(1.75rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--text);
+            margin-bottom: 0.85rem;
+            position: relative;
+        }
+        .cta-box p { font-size: 1rem; color: var(--muted); font-weight: 300; margin-bottom: 2rem; position: relative; }
+        .cta-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; position: relative; }
+
+        /* ---- FOOTER ---- */
+        .footer-pro {
+            border-top: 1px solid var(--bdr);
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand .brand-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--fd);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+        .footer-brand .brand-name i { color: var(--wa); }
+        .footer-brand p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 1.25rem; max-width: 280px; }
+        .footer-socials { display: flex; gap: 0.6rem; }
+        .soc-btn {
+            width: 34px; height: 34px;
+            border-radius: 8px;
+            background: var(--surf);
+            border: 1px solid var(--bdr);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+        }
+        .soc-btn:hover { background: rgba(37,211,102,0.1); color: var(--wa); border-color: rgba(37,211,102,0.2); }
+
+        .footer-col h4 {
+            font-family: var(--fd);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--soft);
+            margin-bottom: 1.1rem;
+        }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+        .footer-col a {
+            font-size: 0.875rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.15s;
+            font-weight: 300;
+        }
+        .footer-col a:hover { color: var(--text); }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 2rem;
+            border-top: 1px solid var(--bdr);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
+        .pay-icons { display: flex; gap: 0.5rem; align-items: center; opacity: 0.5; }
+        .pay-icons img { height: 20px; width: auto; filter: grayscale(1) brightness(2); }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-terminal { display: none; }
+            .hero-desc { max-width: 100%; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+        @media (max-width: 768px) {
+            .hero-pro { padding: 6rem 0 4rem; }
+            .steps-grid { grid-template-columns: repeat(2,1fr); }
+            .steps-grid::before { display: none; }
+            .feat-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .pricing-strip { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+            .cta-box { padding: 3rem 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+        @media (max-width: 600px) {
+            .hero-h1 { font-size: 2rem; }
+            .steps-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader-circle"></div>
+        <span class="sr-only">Cargando...</span>
+    </div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-animation" aria-hidden="true">
+        <div class="floating-orb orb1"></div>
+        <div class="floating-orb orb2"></div>
+        <div class="floating-orb orb3"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" role="navigation" aria-label="Menú principal">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="BotWA Pro - Inicio">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> BotWA Pro
+            </a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="servicios.html" role="menuitem">Servicios</a></li>
+                <li role="none"><a href="planes.html" role="menuitem">Planes</a></li>
+                <li role="none"><a href="testimonios.html" role="menuitem">Testimonios</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="contacto.html" role="menuitem">Contacto</a></li>
+                <li role="none"><a href="auth/login.html" role="menuitem">Iniciar sesión</a></li>
+            </ul>
+            <a href="https://wa.me/593991459589?text=Hola,%20quiero%20información%20sobre%20los%20servidores"
+               class="nav-cta" onclick="showToast('¡Abriendo WhatsApp!')"
+               target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Contactar
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="hero-pro" id="home" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-text">
+                        <div class="hero-eyebrow">
+                            <span class="dot-live"></span>
+                            Servidores activos en Ecuador
+                        </div>
+                        <h1 class="hero-h1" id="hero-title">
+                            Infraestructura para<br>
+                            <span class="ul-green">Automatizar</span> tu
+                            <span class="green">WhatsApp</span><br>
+                            sin bloqueos
+                        </h1>
+                        <p class="hero-desc">
+                            VPS preconfigurados con Baileys, WPPConnect y Docker. Multi-dispositivo, IPs limpias y soporte técnico 24/7 en español desde Ecuador.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="https://wa.me/593991459589?text=Quiero+comprar+un+servidor+para+WhatsApp"
+                               class="btn-green" onclick="showToast('¡Abriendo WhatsApp!')"
+                               target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i> Comprar ahora
+                            </a>
+                            <a href="planes.html" class="btn-ghost-hero">
+                                <i class="fas fa-server"></i> Ver planes
+                            </a>
+                        </div>
+                        <div class="hero-trust">
+                            <span class="trust-pill"><i class="fas fa-shield-alt"></i> Uptime 99.9%</span>
+                            <span class="trust-pill"><i class="fas fa-headset"></i> Soporte 24/7</span>
+                            <span class="trust-pill"><i class="fas fa-undo"></i> 7 días garantía</span>
+                            <span class="trust-pill"><i class="fas fa-credit-card"></i> Pago seguro</span>
+                        </div>
+                    </div>
+
+                    <!-- TERMINAL CARD -->
+                    <div class="hero-terminal" aria-hidden="true">
+                        <div class="tbar">
+                            <span class="tbar-dot r"></span>
+                            <span class="tbar-dot y"></span>
+                            <span class="tbar-dot g"></span>
+                            <span class="tbar-ttl">botwa-pro ~ ssh server</span>
+                        </div>
+                        <div class="tbody">
+                            <div class="tl"><span class="tp">$</span><span class="tc">pm2 status</span></div>
+                            <div class="tl"><span class="ts">● baileys-bot &nbsp;&nbsp; online &nbsp; uptime 14d</span></div>
+                            <div class="tl"><span class="ts">● wppconnect &nbsp;&nbsp; online &nbsp; uptime 14d</span></div>
+                            <div class="tl"><span class="ts">● venom-bot &nbsp;&nbsp;&nbsp; online &nbsp; uptime 12d</span></div>
+                            <div class="tl"><span class="tp">$</span><span class="tc">node -e "console.log('API Ready')"</span></div>
+                            <div class="tl"><span class="ts">✓ API Ready — WhatsApp conectado</span></div>
+                            <div class="tl"><span class="tp">$</span><span class="tc">ping latencia<span class="tcursor"></span></span></div>
+                            <div class="tstats">
+                                <div class="tstat">
+                                    <span class="tstat-v">14ms</span>
+                                    <span class="tstat-l">LATENCIA</span>
+                                </div>
+                                <div class="tstat">
+                                    <span class="tstat-v">99.9%</span>
+                                    <span class="tstat-l">UPTIME</span>
+                                </div>
+                                <div class="tstat">
+                                    <span class="tstat-v">24/7</span>
+                                    <span class="tstat-l">SOPORTE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOGOS BAND -->
+        <div class="logos-band">
+            <div class="container">
+                <p class="logos-label">Tecnologías preinstaladas en tu servidor</p>
+                <div class="logos-row">
+                    <span class="logo-tech"><i class="fab fa-node-js"></i> Node.js</span>
+                    <span class="logo-tech"><i class="fab fa-docker"></i> Docker</span>
+                    <span class="logo-tech"><i class="fas fa-terminal"></i> PM2</span>
+                    <span class="logo-tech"><i class="fab fa-ubuntu"></i> Ubuntu 22</span>
+                    <span class="logo-tech"><i class="fas fa-database"></i> MongoDB</span>
+                    <span class="logo-tech"><i class="fas fa-shield-alt"></i> Nginx</span>
+                    <span class="logo-tech"><i class="fab fa-whatsapp"></i> Baileys</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CÓMO FUNCIONA -->
+        <section class="how-section" aria-labelledby="how-title">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Proceso</span>
+                    <h2 class="sec-title" id="how-title">Tu bot online en menos de 24 horas</h2>
+                    <p class="sec-sub">Sin configuraciones complicadas. Te entregamos el servidor listo para conectar tu librería.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-num">01</div>
+                        <h3>Elige tu plan</h3>
+                        <p>Starter, Pro o Business. Cada plan viene preconfigurado según el volumen de tu operación.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">02</div>
+                        <h3>Paga de forma segura</h3>
+                        <p>PayPal, Stripe o tarjeta. Recibes confirmación inmediata y acceso SSH en tu email.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">03</div>
+                        <h3>Conecta tu librería</h3>
+                        <p>Node.js, PM2 y Docker ya instalados. Sube tu código y escanea el QR de WhatsApp.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">04</div>
+                        <h3>Opera sin parar</h3>
+                        <p>Monitoreo 24/7, reconexión automática y soporte vía WhatsApp cuando lo necesites.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features-pro" aria-labelledby="feat-title">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Ventajas</span>
+                    <h2 class="sec-title" id="feat-title">Por qué elegir BotWA Pro</h2>
+                    <p class="sec-sub">Infraestructura diseñada exclusivamente para operaciones de WhatsApp Business a escala.</p>
+                </div>
+                <div class="feat-grid">
+                    <article class="feat-card">
+                        <div class="feat-icon-w"><i class="fas fa-bolt"></i></div>
+                        <h3>Baja latencia en LATAM</h3>
+                        <p>Servidores ubicados en Latinoamérica. Envía y recibe mensajes en tiempo real sin retrasos perceptibles.</p>
+                    </article>
+                    <article class="feat-card">
+                        <div class="feat-icon-w"><i class="fas fa-infinity"></i></div>
+                        <h3>Uptime 99.9% garantizado</h3>
+                        <p>Infraestructura redundante con monitoreo activo. Tu operación de WhatsApp no se detiene nunca.</p>
+                    </article>
+                    <article class="feat-card">
+                        <div class="feat-icon-w"><i class="fas fa-sync-alt"></i></div>
+                        <h3>Reconexión automática</h3>
+                        <p>Si hay caída de sesión, el servidor reconecta sin intervención manual. Cero tiempo perdido.</p>
+                    </article>
+                    <article class="feat-card">
+                        <div class="feat-icon-w"><i class="fas fa-lock"></i></div>
+                        <h3>Seguridad total</h3>
+                        <p>Acceso SSH con clave, firewall configurado y aislamiento de contenedores por instancia.</p>
+                    </article>
+                    <article class="feat-card">
+                        <div class="feat-icon-w"><i class="fas fa-cogs"></i></div>
+                        <h3>Listo desde el primer día</h3>
+                        <p>Node.js, PM2, Docker y librerías WhatsApp preinstaladas. Solo conectas tu código y listo.</p>
+                    </article>
+                    <article class="feat-card">
+                        <div class="feat-icon-w"><i class="fas fa-chart-line"></i></div>
+                        <h3>Escala en minutos</h3>
+                        <p>Actualiza de plan sin migraciones complicadas. Tu negocio crece, tu servidor también.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats-pro" aria-label="Estadísticas de la plataforma">
+            <div class="container">
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-val"><span class="acc">99.9</span>%</span>
+                        <p class="stat-desc">Uptime garantizado por contrato</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">50<span class="acc">K</span></span>
+                        <p class="stat-desc">Mensajes por día por servidor</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val">200<span class="acc">+</span></span>
+                        <p class="stat-desc">Clientes activos en LATAM</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-val"><span class="acc">&lt;</span>15</span>
+                        <p class="stat-desc">Minutos de respuesta de soporte</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testi-pro" aria-labelledby="testi-title">
+            <div class="container">
+                <div class="testi-header">
+                    <div>
+                        <span class="sec-label">Testimonios</span>
+                        <h2 class="sec-title" id="testi-title">Lo que dicen nuestros clientes</h2>
+                    </div>
+                    <div class="testi-rating">
+                        <span class="stars">★★★★★</span>
+                        <strong>4.9</strong>
+                        <span>de 200 reseñas</span>
+                    </div>
+                </div>
+                <div class="testi-grid">
+                    <article class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-quote">Antes perdía ventas por caídas de sesión. Con BotWA Pro mi bot funciona las 24 horas sin interrupciones. Recomendado al 100%.</p>
+                        <div class="testi-author">
+                            <div class="author-av">JC</div>
+                            <div>
+                                <div class="author-name">Juan C.</div>
+                                <div class="author-role">E-commerce, Guayaquil</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-quote">El soporte es increíble. Tuve un problema con la API a las 2 AM y me ayudaron en menos de 10 minutos por WhatsApp.</p>
+                        <div class="testi-author">
+                            <div class="author-av">LM</div>
+                            <div>
+                                <div class="author-name">Laura M.</div>
+                                <div class="author-role">Agencia de Marketing, Quito</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p class="testi-quote">Configuré el servidor en 20 minutos. Ya tenía todo listo para conectar mi bot con Baileys. Ahorré horas de configuración.</p>
+                        <div class="testi-author">
+                            <div class="author-av">RD</div>
+                            <div>
+                                <div class="author-name">Ricardo D.</div>
+                                <div class="author-role">Desarrollador, Ventanas</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div style="text-align:center; margin-top:2rem;">
+                    <a href="testimonios.html" class="btn-ghost-hero" style="display:inline-flex;">
+                        Ver todos los testimonios <i class="fas fa-arrow-right" style="margin-left:0.4rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING PREVIEW -->
+        <section class="pricing-preview" aria-labelledby="pricing-title">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Precios</span>
+                    <h2 class="sec-title" id="pricing-title">Planes sin letra pequeña</h2>
+                    <p class="sec-sub">Sin contratos. Cancela cuando quieras. Activo en menos de 24 horas.</p>
+                </div>
+                <div class="pricing-strip">
+                    <div class="pp-card">
+                        <div class="pp-name">Starter</div>
+                        <div class="pp-price">$15 <span>/mes</span></div>
+                        <ul class="pp-features">
+                            <li><i class="fas fa-check"></i> 1 Instancia WhatsApp</li>
+                            <li><i class="fas fa-check"></i> 5,000 mensajes/día</li>
+                            <li><i class="fas fa-check"></i> API Baileys</li>
+                            <li><i class="fas fa-check"></i> Soporte vía ticket</li>
+                        </ul>
+                        <a href="https://wa.me/0979832977?text=Quiero+el+Plan+Starter" class="pp-btn outline" target="_blank" rel="noopener noreferrer">Empezar</a>
+                    </div>
+                    <div class="pp-card pop">
+                        <span class="pop-label">Más popular</span>
+                        <div class="pp-name">Professional</div>
+                        <div class="pp-price">$35 <span>/mes</span></div>
+                        <ul class="pp-features">
+                            <li><i class="fas fa-check"></i> 3 Instancias WhatsApp</li>
+                            <li><i class="fas fa-check"></i> Mensajes ilimitados</li>
+                            <li><i class="fas fa-check"></i> Todas las APIs + Docker</li>
+                            <li><i class="fas fa-check"></i> Soporte 24/7 WhatsApp</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+el+Plan+Pro" class="pp-btn solid" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> Adquirir Pro
+                        </a>
+                    </div>
+                    <div class="pp-card">
+                        <div class="pp-name">Business</div>
+                        <div class="pp-price">$75 <span>/mes</span></div>
+                        <ul class="pp-features">
+                            <li><i class="fas fa-check"></i> 10 Instancias WhatsApp</li>
+                            <li><i class="fas fa-check"></i> Alta disponibilidad</li>
+                            <li><i class="fas fa-check"></i> IP Residencial Dedicada</li>
+                            <li><i class="fas fa-check"></i> Soporte VIP + Consultoría</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+el+Plan+Business" class="pp-btn outline" target="_blank" rel="noopener noreferrer">Contactar ventas</a>
+                    </div>
+                </div>
+                <div style="text-align:center; margin-top:1.5rem;">
+                    <a href="planes.html" class="btn-ghost-hero" style="display:inline-flex;">
+                        Comparar todos los planes <i class="fas fa-arrow-right" style="margin-left:0.4rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="cta-final">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>¿Listo para escalar tu WhatsApp Business?</h2>
+                    <p>7 días de garantía. Configuración incluida. Soporte en español 24/7.</p>
+                    <div class="cta-btns">
+                        <a href="https://wa.me/593991459589?text=Hola,%20quiero%20comprar%20un%20servidor%20para%20WhatsApp"
+                           class="btn-green" onclick="showToast('¡Abriendo WhatsApp!')"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+                        </a>
+                        <a href="contacto.html" class="btn-ghost-hero">
+                            <i class="fas fa-question-circle"></i> Tengo dudas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-pro" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-name">
+                        <i class="fab fa-whatsapp"></i> BotWA Pro
+                    </a>
+                    <p>Servidores especializados para automatización de WhatsApp Business. Soporte desde Ecuador para toda Latinoamérica.</p>
+                    <div class="footer-socials">
+                        <a href="https://wa.me/593991459589" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="GitHub" class="soc-btn"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Telegram" class="soc-btn"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Producto</h4>
+                    <ul>
+                        <li><a href="planes.html">Planes y precios</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="comparativa.html">Comparativa</a></li>
+                        <li><a href="demo.html">Demo en vivo</a></li>
+                        <li><a href="ofertas.html">Ofertas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="afiliados.html">Afiliados</a></li>
+                        <li><a href="faq.html">Preguntas frecuentes</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soporte y Legal</h4>
+                    <ul>
+                        <li><a href="soporte.html">Centro de soporte</a></li>
+                        <li><a href="terminos.html">Términos de uso</a></li>
+                        <li><a href="privacidad.html">Privacidad</a></li>
+                        <li><a href="reembolso.html">Reembolsos</a></li>
+                        <li><a href="cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> BotWA Pro. Todos los derechos reservados.</p>
+                <div class="pay-icons">
+                    <img src="assets/img/pagos/visa.png" alt="Visa" height="20" loading="lazy">
+                    <img src="assets/img/pagos/mastercard.png" alt="Mastercard" height="20" loading="lazy">
+                    <img src="assets/img/pagos/paypal.png" alt="PayPal" height="20" loading="lazy">
+                    <img src="assets/img/pagos/pichincha.png" alt="Stripe" height="20" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-icon"><i class="fas fa-check"></i></div>
+        <div class="toast-message" id="toastMessage">¡Acción completada!</div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

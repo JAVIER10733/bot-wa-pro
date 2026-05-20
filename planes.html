@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes y Precios | BotWA Pro</title>
+    <meta name="description" content="60 planes para WhatsApp Business. Starter, Professional, Business y Enterprise. Sin contratos.">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        :root {
+            --wa:    #25d366;
+            --wa-d:  rgba(37,211,102,0.09);
+            --wa-g:  rgba(37,211,102,0.22);
+            --ink:   #090c10;
+            --ink2:  #0e1218;
+            --s1:    rgba(255,255,255,0.03);
+            --s2:    rgba(255,255,255,0.055);
+            --b1:    rgba(255,255,255,0.07);
+            --b2:    rgba(255,255,255,0.13);
+            --text:  #e8eaf2;
+            --mu:    #6b7280;
+            --soft:  #9ca3af;
+            --fd: 'Syne', sans-serif;
+            --fb: 'DM Sans', sans-serif;
+            --fm: 'JetBrains Mono', monospace;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--fb); background: var(--ink); color: var(--text); overflow-x: hidden; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ===== HERO ===== */
+        .ph {
+            padding: 7rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .ph::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 20%, transparent 100%);
+            pointer-events: none;
+        }
+        .ph::after {
+            content: '';
+            position: absolute;
+            width: 700px; height: 400px;
+            background: radial-gradient(ellipse, rgba(37,211,102,0.06) 0%, transparent 70%);
+            top: 0; left: 50%; transform: translateX(-50%);
+            pointer-events: none;
+        }
+        .ph .container { position: relative; z-index: 1; }
+        .ph-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--wa-d);
+            border: 1px solid rgba(37,211,102,0.18);
+            color: var(--wa);
+            font-family: var(--fm);
+            font-size: 0.7rem;
+            padding: 0.38rem 0.9rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+        .ph h1 {
+            font-family: var(--fd);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.06;
+            margin-bottom: 1rem;
+        }
+        .ph h1 .g { color: var(--wa); }
+        .ph p {
+            font-size: 1.05rem;
+            color: var(--soft);
+            line-height: 1.7;
+            font-weight: 300;
+            max-width: 560px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Toggle billing */
+        .billing-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            background: var(--s1);
+            border: 1px solid var(--b1);
+            border-radius: 999px;
+            padding: 0.45rem 0.55rem 0.45rem 1.1rem;
+            font-size: 0.875rem;
+            color: var(--soft);
+            margin-bottom: 2.5rem;
+        }
+        .tog { position: relative; width: 44px; height: 24px; cursor: pointer; }
+        .tog input { opacity: 0; position: absolute; width: 0; height: 0; }
+        .tog-track {
+            position: absolute; inset: 0;
+            background: var(--s2); border: 1px solid var(--b2); border-radius: 999px;
+            transition: background 0.25s, border-color 0.25s;
+        }
+        .tog-thumb {
+            position: absolute; top: 3px; left: 3px;
+            width: 16px; height: 16px; border-radius: 50%;
+            background: var(--soft); transition: transform 0.25s, background 0.25s;
+        }
+        .tog input:checked ~ .tog-track { background: rgba(37,211,102,0.12); border-color: rgba(37,211,102,0.3); }
+        .tog input:checked ~ .tog-thumb { transform: translateX(20px); background: var(--wa); }
+        .save-pill {
+            background: var(--wa-d);
+            color: var(--wa);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.22rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(37,211,102,0.2);
+        }
+
+        /* ===== FILTER TABS ===== */
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1.1rem;
+            background: var(--s1);
+            border: 1px solid var(--b1);
+            border-radius: 999px;
+            color: var(--soft);
+            font-family: var(--fb);
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+        .filter-btn:hover { background: var(--s2); border-color: var(--b2); color: var(--text); }
+        .filter-btn.active {
+            background: var(--wa-d);
+            border-color: rgba(37,211,102,0.25);
+            color: var(--wa);
+        }
+        .filter-count {
+            font-family: var(--fm);
+            font-size: 0.65rem;
+            background: rgba(37,211,102,0.1);
+            color: var(--wa);
+            padding: 0.1rem 0.4rem;
+            border-radius: 999px;
+        }
+
+        /* ===== CATEGORY SECTION ===== */
+        .cat-section { margin-bottom: 4.5rem; display: none; }
+        .cat-section.visible { display: block; }
+
+        .cat-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+        .cat-title {
+            font-family: var(--fd);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .cat-line { flex: 1; height: 1px; background: var(--b1); }
+        .cat-count {
+            font-family: var(--fm);
+            font-size: 0.7rem;
+            color: var(--mu);
+            padding: 0.2rem 0.6rem;
+            background: var(--s1);
+            border: 1px solid var(--b1);
+            border-radius: 999px;
+        }
+
+        /* ===== PRICING GRID ===== */
+        .pg {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        /* ===== CARD ===== */
+        .pc {
+            background: var(--s1);
+            border: 1px solid var(--b1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            animation: fu 0.4s ease both;
+        }
+        @keyframes fu { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+        .pc:hover { transform: translateY(-3px); border-color: var(--b2); box-shadow: 0 16px 50px rgba(0,0,0,0.3); }
+        .pc.feat {
+            background: linear-gradient(150deg, rgba(37,211,102,0.08) 0%, var(--s1) 70%);
+            border-color: rgba(37,211,102,0.22);
+            box-shadow: 0 0 0 1px rgba(37,211,102,0.08), 0 20px 60px rgba(37,211,102,0.07);
+        }
+        .pc.feat:hover { box-shadow: 0 0 0 1px rgba(37,211,102,0.15), 0 30px 70px rgba(37,211,102,0.12); }
+
+        .feat-pill {
+            position: absolute;
+            top: -12px; left: 1.25rem;
+            background: var(--wa);
+            color: #080b0e;
+            font-family: var(--fd);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+        }
+
+        /* Card header */
+        .pc-hd { display: flex; flex-direction: column; gap: 0.35rem; }
+        .pc-icon {
+            width: 36px; height: 36px;
+            border-radius: 9px;
+            background: var(--wa-d);
+            border: 1px solid rgba(37,211,102,0.12);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.95rem; color: var(--wa);
+            margin-bottom: 0.35rem;
+        }
+        .pc-name {
+            font-family: var(--fd);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .pc-desc { font-size: 0.78rem; color: var(--mu); font-weight: 300; line-height: 1.4; }
+
+        /* Price */
+        .pc-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.15rem;
+            flex-wrap: wrap;
+        }
+        .pc-cur { font-family: var(--fd); font-size: 1rem; font-weight: 600; color: var(--soft); align-self: flex-start; margin-top: 0.3rem; }
+        .pc-amt {
+            font-family: var(--fd);
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--text);
+            line-height: 1;
+        }
+        .pc.feat .pc-amt { color: var(--wa); }
+        .pc-per { font-size: 0.78rem; color: var(--mu); font-weight: 300; }
+        .pc-annual { font-size: 0.72rem; color: var(--wa); display: none; margin-top: 0.2rem; font-weight: 500; }
+        .pc-annual.show { display: block; }
+
+        /* Divider */
+        .pc-div { height: 1px; background: var(--b1); }
+
+        /* Features */
+        .pc-feats { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+        .pc-feats li {
+            display: flex; align-items: center; gap: 0.55rem;
+            font-size: 0.8rem; color: var(--soft); line-height: 1.4; font-weight: 300;
+        }
+        .pc-feats li.no { opacity: 0.35; }
+        .fi {
+            width: 17px; height: 17px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.55rem; flex-shrink: 0;
+        }
+        .fi.ok { background: rgba(37,211,102,0.1); color: var(--wa); }
+        .fi.no { background: rgba(107,114,128,0.1); color: var(--mu); }
+
+        /* CTA */
+        .pc-btn {
+            display: block;
+            text-align: center;
+            padding: 0.7rem 1rem;
+            border-radius: 9px;
+            font-family: var(--fd);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s, color 0.15s;
+        }
+        .pc-btn.out {
+            border: 1px solid var(--b2);
+            color: var(--soft);
+            background: transparent;
+        }
+        .pc-btn.out:hover { background: var(--s2); color: var(--text); }
+        .pc-btn.sol {
+            background: var(--wa);
+            color: #080b0e;
+            box-shadow: 0 4px 18px var(--wa-g);
+        }
+        .pc-btn.sol:hover { background: #1fba56; transform: translateY(-2px); box-shadow: 0 8px 28px var(--wa-g); }
+
+        /* ===== COMPACT CARD (plans sin detalles) ===== */
+        .pc.compact {
+            gap: 0.75rem;
+            padding: 1.25rem;
+        }
+        .pc.compact .pc-hd { flex-direction: row; align-items: center; gap: 0.6rem; }
+        .pc.compact .pc-icon { margin-bottom: 0; flex-shrink: 0; width: 30px; height: 30px; font-size: 0.8rem; }
+        .pc.compact .pc-name { font-size: 0.875rem; }
+        .pc.compact .pc-desc { font-size: 0.73rem; }
+        .pc.compact .pc-amt { font-size: 1.6rem; }
+
+        /* ===== EMPTY STATE ===== */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--mu);
+            display: none;
+        }
+        .no-results i { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.4; }
+        .no-results p { font-size: 0.95rem; }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            margin: 2rem 0 5rem;
+            background: linear-gradient(135deg, rgba(37,211,102,0.07) 0%, var(--s1) 60%);
+            border: 1px solid rgba(37,211,102,0.14);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(37,211,102,0.07) 0%, transparent 70%);
+            right: -60px; top: -60px;
+            pointer-events: none;
+        }
+        .cta-banner h2 {
+            font-family: var(--fd);
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+        .cta-banner p { font-size: 0.9rem; color: var(--mu); font-weight: 300; }
+        .cta-acts { display: flex; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
+        .btn-wa {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: var(--wa); color: #080b0e;
+            font-family: var(--fd); font-size: 0.875rem; font-weight: 700;
+            padding: 0.85rem 1.5rem; border-radius: 10px; text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+            white-space: nowrap;
+        }
+        .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--wa-g); }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: transparent; border: 1px solid var(--b2); color: var(--soft);
+            font-family: var(--fd); font-size: 0.875rem; font-weight: 600;
+            padding: 0.85rem 1.5rem; border-radius: 10px; text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+        .btn-ghost:hover { background: var(--s2); color: var(--text); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .ph { padding: 5rem 0 3rem; }
+            .pg { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+            .cta-banner { flex-direction: column; text-align: center; }
+            .cta-acts { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .pg { grid-template-columns: 1fr 1fr; }
+            .filter-btn span { display: none; }
+        }
+        @media (max-width: 360px) {
+            .pg { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader-circle"></div>
+        <span class="sr-only">Cargando...</span>
+    </div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-animation" aria-hidden="true">
+        <div class="floating-orb orb1"></div>
+        <div class="floating-orb orb2"></div>
+        <div class="floating-orb orb3"></div>
+    </div>
+
+    <nav id="navbar" role="navigation" aria-label="Menú principal">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fab fa-whatsapp"></i> BotWA Pro</a>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Inicio</a></li>
+                <li role="none"><a href="servicios.html" role="menuitem">Servicios</a></li>
+                <li role="none"><a href="planes.html" role="menuitem" class="active">Planes</a></li>
+                <li role="none"><a href="testimonios.html" role="menuitem">Testimonios</a></li>
+                <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+                <li role="none"><a href="contacto.html" role="menuitem">Contacto</a></li>
+                <li role="none"><a href="auth/login.html" role="menuitem">Iniciar sesión</a></li>
+            </ul>
+            <a href="https://wa.me/593991459589" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> Contactar
+            </a>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="ph">
+            <div class="container">
+                <div class="ph-badge"><i class="fas fa-bolt"></i> 60 planes disponibles · Sin contratos</div>
+                <h1>El plan exacto para<br><span class="g">tu operación</span></h1>
+                <p>Desde pruebas gratuitas hasta infraestructura corporativa. Cancela cuando quieras. Activo en menos de 24 horas.</p>
+
+                <div class="billing-wrap">
+                    <span>Mensual</span>
+                    <label class="tog" aria-label="Facturación anual">
+                        <input type="checkbox" id="billingTog">
+                        <span class="tog-track"></span>
+                        <span class="tog-thumb"></span>
+                    </label>
+                    <span>Anual</span>
+                    <span class="save-pill">Ahorra 20%</span>
+                </div>
+
+                <!-- FILTER BAR -->
+                <div class="filter-bar" role="tablist" aria-label="Filtrar por categoría">
+                    <button class="filter-btn active" data-cat="all" role="tab" aria-selected="true">
+                        <i class="fas fa-th"></i> <span>Todos</span>
+                        <span class="filter-count">60</span>
+                    </button>
+                    <button class="filter-btn" data-cat="trial" role="tab" aria-selected="false">
+                        <i class="fas fa-flask"></i> <span>Prueba</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                    <button class="filter-btn" data-cat="starter" role="tab" aria-selected="false">
+                        <i class="fas fa-seedling"></i> <span>Starter</span>
+                        <span class="filter-count">10</span>
+                    </button>
+                    <button class="filter-btn" data-cat="pro" role="tab" aria-selected="false">
+                        <i class="fas fa-rocket"></i> <span>Professional</span>
+                        <span class="filter-count">15</span>
+                    </button>
+                    <button class="filter-btn" data-cat="business" role="tab" aria-selected="false">
+                        <i class="fas fa-building"></i> <span>Business</span>
+                        <span class="filter-count">15</span>
+                    </button>
+                    <button class="filter-btn" data-cat="enterprise" role="tab" aria-selected="false">
+                        <i class="fas fa-crown"></i> <span>Enterprise</span>
+                        <span class="filter-count">10</span>
+                    </button>
+                    <button class="filter-btn" data-cat="industry" role="tab" aria-selected="false">
+                        <i class="fas fa-industry"></i> <span>Industria</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLANS CONTAINER -->
+        <div class="container" style="padding-bottom: 2rem;">
+
+            <!-- ===== CAT 1: PRUEBA & TESTING ===== -->
+            <section class="cat-section visible" data-cat="trial" aria-labelledby="cat-trial">
+                <div class="cat-header">
+                    <h2 class="cat-title" id="cat-trial">🧪 Prueba &amp; Testing</h2>
+                    <div class="cat-line"></div>
+                    <span class="cat-count">5 planes</span>
+                </div>
+                <div class="pg">
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-flask"></i></div>
+                            <div class="pc-name">Trial Básico</div>
+                            <div class="pc-desc">Testeo inicial sin compromiso.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price">
+                                <span class="pc-cur">$</span>
+                                <span class="pc-amt" data-m="0" data-a="0">0</span>
+                                <span class="pc-per">/7 días</span>
+                            </div>
+                            <div class="pc-annual">Sin tarjeta de crédito</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 1 Instancia</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 500 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> API Baileys</li>
+                            <li class="no"><span class="fi no"><i class="fas fa-times"></i></span> Uso en producción</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Trial+Basico" class="pc-btn out" target="_blank" rel="noopener">Comenzar gratis</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-vial"></i></div>
+                            <div class="pc-name">Trial Plus</div>
+                            <div class="pc-desc">Para pruebas más extensas.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price">
+                                <span class="pc-cur">$</span>
+                                <span class="pc-amt" data-m="5" data-a="4">5</span>
+                                <span class="pc-per">/14 días</span>
+                            </div>
+                            <div class="pc-annual">Facturado $48/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 2 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 1,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> API + Webhooks</li>
+                            <li class="no"><span class="fi no"><i class="fas fa-times"></i></span> Uso en producción</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Trial+Plus" class="pc-btn out" target="_blank" rel="noopener">Comenzar</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-microscope"></i></div>
+                            <div class="pc-name">Trial Pro</div>
+                            <div class="pc-desc">Testing avanzado con más límites.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price">
+                                <span class="pc-cur">$</span>
+                                <span class="pc-amt" data-m="10" data-a="8">10</span>
+                                <span class="pc-per">/30 días</span>
+                            </div>
+                            <div class="pc-annual">Facturado $96/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 3 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 2,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Todas las APIs</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Soporte email</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Trial+Pro" class="pc-btn out" target="_blank" rel="noopener">Comenzar</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-flask"></i></div>
+                            <div class="pc-name">Trial Enterprise</div>
+                            <div class="pc-desc">Para evaluar antes de comprar.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price">
+                                <span class="pc-cur">$</span>
+                                <span class="pc-amt" data-m="25" data-a="20">25</span>
+                                <span class="pc-per">/30 días</span>
+                            </div>
+                            <div class="pc-annual">Facturado $240/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 5 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 5,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> IP Dedicada</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Soporte prioritario</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Trial+Enterprise" class="pc-btn out" target="_blank" rel="noopener">Comenzar</a>
+                    </div>
+
+                    <div class="pc feat">
+                        <span class="feat-pill">🔥 Popular</span>
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-infinity"></i></div>
+                            <div class="pc-name">Trial Unlimited</div>
+                            <div class="pc-desc">Todo ilimitado por 30 días.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price">
+                                <span class="pc-cur">$</span>
+                                <span class="pc-amt" data-m="50" data-a="40">50</span>
+                                <span class="pc-per">/30 días</span>
+                            </div>
+                            <div class="pc-annual">Facturado $480/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Instancias ilimitadas</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Mensajes ilimitados</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Todas las funciones</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Soporte 24/7</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Trial+Unlimited" class="pc-btn sol" target="_blank" rel="noopener">Comenzar ahora</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ===== CAT 2: STARTER ===== -->
+            <section class="cat-section visible" data-cat="starter" aria-labelledby="cat-starter">
+                <div class="cat-header">
+                    <h2 class="cat-title" id="cat-starter">🌱 Starter &amp; Individual</h2>
+                    <div class="cat-line"></div>
+                    <span class="cat-count">10 planes</span>
+                </div>
+                <div class="pg">
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-seedling"></i></div>
+                            <div class="pc-name">Starter Micro</div>
+                            <div class="pc-desc">Para emprendedores iniciales.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="9" data-a="7">9</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $84/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 1 Instancia</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 1,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 1 Dispositivo</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Soporte email</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Micro" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-seedling"></i></div>
+                            <div class="pc-name">Starter Basic</div>
+                            <div class="pc-desc">Ideal para pequeños negocios.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="15" data-a="12">15</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $144/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 1 Instancia</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 3,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 2 Dispositivos</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Soporte ticket</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Basic" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-sprout"></i></div>
+                            <div class="pc-name">Starter Plus</div>
+                            <div class="pc-desc">Para negocios en crecimiento.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="22" data-a="18">22</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $216/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 2 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 5,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 3 Dispositivos</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Soporte chat</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Plus" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-leaf"></i></div>
+                            <div class="pc-name">Starter Pro</div>
+                            <div class="pc-desc">Más potencia para tu negocio.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="29" data-a="23">29</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $276/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 3 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 8,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 4 Dispositivos</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Backup semanal</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Pro" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-tree"></i></div>
+                            <div class="pc-name">Starter Max</div>
+                            <div class="pc-desc">El máximo del nivel Starter.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="39" data-a="31">39</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $372/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 5 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 12,000 mensajes/día</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 5 Dispositivos</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Backup diario</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Max" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <!-- Compact starter series -->
+                    <div class="pc compact">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-seedling"></i></div>
+                            <div><div class="pc-name">Starter Adv. 1</div><div class="pc-desc">7 inst · 15K msg/día</div></div>
+                        </div>
+                        <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="49" data-a="39">49</span><span class="pc-per">/mes</span></div>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Advanced+1" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc compact">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-seedling"></i></div>
+                            <div><div class="pc-name">Starter Adv. 2</div><div class="pc-desc">10 inst · 20K msg/día</div></div>
+                        </div>
+                        <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="59" data-a="47">59</span><span class="pc-per">/mes</span></div>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Advanced+2" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc compact">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-seedling"></i></div>
+                            <div><div class="pc-name">Starter Adv. 3</div><div class="pc-desc">15 inst · 30K msg/día</div></div>
+                        </div>
+                        <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="79" data-a="63">79</span><span class="pc-per">/mes</span></div>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Advanced+3" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc compact">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-seedling"></i></div>
+                            <div><div class="pc-name">Starter Adv. 4</div><div class="pc-desc">20 inst · 40K msg/día</div></div>
+                        </div>
+                        <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="99" data-a="79">99</span><span class="pc-per">/mes</span></div>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Advanced+4" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc compact">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-seedling"></i></div>
+                            <div><div class="pc-name">Starter Adv. 5</div><div class="pc-desc">25 inst · 50K msg/día</div></div>
+                        </div>
+                        <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="119" data-a="95">119</span><span class="pc-per">/mes</span></div>
+                        <a href="https://wa.me/593991459589?text=Quiero+Starter+Advanced+5" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ===== CAT 3: PROFESSIONAL ===== -->
+            <section class="cat-section visible" data-cat="pro" aria-labelledby="cat-pro">
+                <div class="cat-header">
+                    <h2 class="cat-title" id="cat-pro">💼 Professional &amp; PYMES</h2>
+                    <div class="cat-line"></div>
+                    <span class="cat-count">15 planes</span>
+                </div>
+                <div class="pg">
+
+                    <div class="pc feat">
+                        <span class="feat-pill">⭐ Recomendado</span>
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-rocket"></i></div>
+                            <div class="pc-name">Pro Basic</div>
+                            <div class="pc-desc">Para agencias pequeñas.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="35" data-a="28">35</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $336/año · Ahorra $84</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 3 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Mensajes ilimitados</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 4 Dispositivos/instancia</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Soporte 24/7 WhatsApp</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Pro+Basic" class="pc-btn sol" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Adquirir Pro</a>
+                    </div>
+
+                    <!-- Pro 1-14 compact -->
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 1</div><div class="pc-desc">5 inst · 100K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="45" data-a="36">45</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+1" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 2</div><div class="pc-desc">7 inst · 150K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="55" data-a="44">55</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+2" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 3</div><div class="pc-desc">10 inst · 200K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="65" data-a="52">65</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+3" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 4</div><div class="pc-desc">15 inst · 300K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="85" data-a="68">85</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+4" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 5</div><div class="pc-desc">20 inst · 400K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="105" data-a="84">105</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+5" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 6</div><div class="pc-desc">25 inst · 500K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="125" data-a="100">125</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+6" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 7</div><div class="pc-desc">30 inst · 600K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="145" data-a="116">145</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+7" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 8</div><div class="pc-desc">40 inst · 800K msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="175" data-a="140">175</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+8" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 9</div><div class="pc-desc">50 inst · 1M msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="205" data-a="164">205</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+9" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 10</div><div class="pc-desc">60 inst · 1.2M msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="235" data-a="188">235</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+10" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 11</div><div class="pc-desc">75 inst · 1.5M msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="275" data-a="220">275</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+11" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 12</div><div class="pc-desc">100 inst · 2M msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="325" data-a="260">325</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+12" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 13</div><div class="pc-desc">150 inst · 3M msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="425" data-a="340">425</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+13" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-rocket"></i></div><div><div class="pc-name">Pro 14</div><div class="pc-desc">200 inst · 4M msg/día</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="525" data-a="420">525</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Pro+14" class="pc-btn out" target="_blank" rel="noopener">Elegir</a></div>
+
+                </div>
+            </section>
+
+            <!-- ===== CAT 4: BUSINESS ===== -->
+            <section class="cat-section visible" data-cat="business" aria-labelledby="cat-biz">
+                <div class="cat-header">
+                    <h2 class="cat-title" id="cat-biz">🏢 Business &amp; Empresas</h2>
+                    <div class="cat-line"></div>
+                    <span class="cat-count">15 planes</span>
+                </div>
+                <div class="pg">
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-building"></i></div>
+                            <div class="pc-name">Business Basic</div>
+                            <div class="pc-desc">Para empresas medianas.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="75" data-a="60">75</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $720/año · Ahorra $180</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 10 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Dispositivos ilimitados</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> SLA 99.99%</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> IP Residencial</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Business+Basic" class="pc-btn out" target="_blank" rel="noopener">Contactar</a>
+                    </div>
+
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 1</div><div class="pc-desc">15 inst · 5M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="95" data-a="76">95</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+1" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 2</div><div class="pc-desc">20 inst · 6M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="115" data-a="92">115</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+2" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 3</div><div class="pc-desc">30 inst · 8M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="155" data-a="124">155</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+3" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 4</div><div class="pc-desc">40 inst · 10M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="195" data-a="156">195</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+4" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 5</div><div class="pc-desc">50 inst · 12M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="235" data-a="188">235</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+5" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 6</div><div class="pc-desc">75 inst · 15M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="295" data-a="236">295</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+6" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 7</div><div class="pc-desc">100 inst · 20M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="375" data-a="300">375</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+7" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 8</div><div class="pc-desc">150 inst · 30M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="495" data-a="396">495</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+8" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 9</div><div class="pc-desc">200 inst · 40M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="625" data-a="500">625</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+9" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 10</div><div class="pc-desc">300 inst · 60M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="825" data-a="660">825</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+10" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 11</div><div class="pc-desc">400 inst · 80M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="1025" data-a="820">1,025</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+11" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 12</div><div class="pc-desc">500 inst · 100M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="1225" data-a="980">1,225</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+12" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 13</div><div class="pc-desc">750 inst · 150M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="1625" data-a="1300">1,625</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+13" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-building"></i></div><div><div class="pc-name">Business 14</div><div class="pc-desc">1000 inst · 200M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="2025" data-a="1620">2,025</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Business+14" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+
+                </div>
+            </section>
+
+            <!-- ===== CAT 5: ENTERPRISE ===== -->
+            <section class="cat-section visible" data-cat="enterprise" aria-labelledby="cat-ent">
+                <div class="cat-header">
+                    <h2 class="cat-title" id="cat-ent">👑 Enterprise &amp; Corporativo</h2>
+                    <div class="cat-line"></div>
+                    <span class="cat-count">10 planes</span>
+                </div>
+                <div class="pg">
+
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 1</div><div class="pc-desc">1,500 inst · 300M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="2825" data-a="2260">2,825</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+1" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 2</div><div class="pc-desc">2,000 inst · 400M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="3625" data-a="2900">3,625</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+2" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 3</div><div class="pc-desc">3,000 inst · 600M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="5025" data-a="4020">5,025</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+3" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 4</div><div class="pc-desc">4,000 inst · 800M msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="6425" data-a="5140">6,425</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+4" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 5</div><div class="pc-desc">5,000 inst · 1B msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="7825" data-a="6260">7,825</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+5" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 6</div><div class="pc-desc">7,500 inst · 1.5B msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="10825" data-a="8660">10,825</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+6" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 7</div><div class="pc-desc">10,000 inst · 2B msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="13825" data-a="11060">13,825</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+7" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 8</div><div class="pc-desc">15,000 inst · 3B msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="18825" data-a="15060">18,825</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+8" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+                    <div class="pc compact"><div class="pc-hd"><div class="pc-icon"><i class="fas fa-crown"></i></div><div><div class="pc-name">Enterprise 9</div><div class="pc-desc">20,000 inst · 4B msg</div></div></div><div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="23825" data-a="19060">23,825</span><span class="pc-per">/mes</span></div><a href="https://wa.me/593991459589?text=Quiero+Enterprise+9" class="pc-btn out" target="_blank" rel="noopener">Contactar</a></div>
+
+                    <div class="pc feat">
+                        <span class="feat-pill">💎 Custom</span>
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-gem"></i></div>
+                            <div class="pc-name">Enterprise Unlimited</div>
+                            <div class="pc-desc">Infraestructura dedicada completa.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price">
+                                <span class="pc-amt" style="font-size:1.8rem">Custom</span>
+                            </div>
+                            <div class="pc-annual">Precio según requerimiento</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Instancias ilimitadas</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Infraestructura dedicada</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> SLA personalizado</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Account manager</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Enterprise+Unlimited" class="pc-btn sol" target="_blank" rel="noopener">Contactar ventas</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ===== CAT 6: INDUSTRIA ===== -->
+            <section class="cat-section visible" data-cat="industry" aria-labelledby="cat-ind">
+                <div class="cat-header">
+                    <h2 class="cat-title" id="cat-ind">🏭 Industria Específica</h2>
+                    <div class="cat-line"></div>
+                    <span class="cat-count">5 planes</span>
+                </div>
+                <div class="pg">
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="pc-name">E-commerce Pack</div>
+                            <div class="pc-desc">Para tiendas online con alto volumen.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="149" data-a="119">149</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $1,428/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 20 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Integración Shopify/WooCommerce</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Carritos abandonados</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Tracking de envíos</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Ecommerce+Pack" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-heartbeat"></i></div>
+                            <div class="pc-name">Salud Pack</div>
+                            <div class="pc-desc">Para clínicas, hospitales y consultorios.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="199" data-a="159">199</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $1,908/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 25 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> HIPAA compliant</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Citas automáticas</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Recordatorio de medicamentos</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Salud+Pack" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="pc-name">Educación Pack</div>
+                            <div class="pc-desc">Para instituciones educativas.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="129" data-a="103">129</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $1,236/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 15 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Notificaciones de clases</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Encuestas automáticas</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Comunicación con padres</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Educacion+Pack" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc">
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-utensils"></i></div>
+                            <div class="pc-name">Restaurantes Pack</div>
+                            <div class="pc-desc">Para cadenas de comida y franquicias.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="99" data-a="79">99</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $948/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 10 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Pedidos por WhatsApp</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Menú digital interactivo</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Reserva de mesas</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Restaurantes+Pack" class="pc-btn out" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                    <div class="pc feat">
+                        <span class="feat-pill">🎯 Agencias</span>
+                        <div class="pc-hd">
+                            <div class="pc-icon"><i class="fas fa-briefcase"></i></div>
+                            <div class="pc-name">Agencias Pack</div>
+                            <div class="pc-desc">Gestiona múltiples clientes desde un panel.</div>
+                        </div>
+                        <div>
+                            <div class="pc-price"><span class="pc-cur">$</span><span class="pc-amt" data-m="299" data-a="239">299</span><span class="pc-per">/mes</span></div>
+                            <div class="pc-annual">Facturado $2,868/año</div>
+                        </div>
+                        <div class="pc-div"></div>
+                        <ul class="pc-feats">
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> 50 Instancias</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Panel multi-cliente</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Reportes white-label</li>
+                            <li><span class="fi ok"><i class="fas fa-check"></i></span> Facturación consolidada</li>
+                        </ul>
+                        <a href="https://wa.me/593991459589?text=Quiero+Agencias+Pack" class="pc-btn sol" target="_blank" rel="noopener">Elegir</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CTA BANNER -->
+            <div class="cta-banner">
+                <div>
+                    <h2>¿No encuentras el plan ideal?</h2>
+                    <p>Cuéntanos tu caso. Creamos un plan a medida para tu operación en menos de 24 horas.</p>
+                </div>
+                <div class="cta-acts">
+                    <a href="https://wa.me/593991459589?text=Necesito+un+plan+personalizado" class="btn-wa" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Plan a medida
+                    </a>
+                    <a href="index.html" class="btn-ghost">
+                        <i class="fas fa-arrow-left"></i> Volver al inicio
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" class="logo"><i class="fab fa-whatsapp"></i> BotWA Pro</a>
+                <p>Servidores especializados para automatización de WhatsApp Business. Soporte desde Ecuador para toda Latinoamérica.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/593991459589" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Planes</h4>
+                <ul>
+                    <li><a href="#" onclick="filterCat('trial')">Prueba gratuita</a></li>
+                    <li><a href="#" onclick="filterCat('starter')">Starter</a></li>
+                    <li><a href="#" onclick="filterCat('pro')">Professional</a></li>
+                    <li><a href="#" onclick="filterCat('business')">Business</a></li>
+                    <li><a href="#" onclick="filterCat('enterprise')">Enterprise</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terminos.html">Términos de uso</a></li>
+                    <li><a href="privacidad.html">Privacidad</a></li>
+                    <li><a href="reembolso.html">Reembolsos</a></li>
+                    <li><a href="cookies.html">Cookies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="soporte.html">Centro de soporte</a></li>
+                    <li><a href="faq.html">Preguntas frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2025</span> BotWA Pro. Todos los derechos reservados.</p>
+            <div class="payment-icons">
+                <img src="assets/img/pagos/visa.png" alt="Visa" width="40" height="25" loading="lazy">
+                <img src="assets/img/pagos/mastercard.png" alt="Mastercard" width="40" height="25" loading="lazy">
+                <img src="assets/img/pagos/paypal.png" alt="PayPal" width="40" height="25" loading="lazy">
+                <img src="assets/img/pagos/stripe.png" alt="Stripe" width="40" height="25" loading="lazy">
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-icon"><i class="fas fa-check"></i></div>
+        <div class="toast-message" id="toastMessage">¡Acción completada!</div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script>
+        // ===== BILLING TOGGLE =====
+        const tog = document.getElementById('billingTog');
+        const amounts = document.querySelectorAll('.pc-amt');
+        const annuals = document.querySelectorAll('.pc-annual');
+
+        tog.addEventListener('change', () => {
+            const on = tog.checked;
+            amounts.forEach(el => {
+                const m = el.dataset.m, a = el.dataset.a;
+                if (m && a && m !== '0') el.textContent = on ? a : m;
+            });
+            annuals.forEach(el => el.classList.toggle('show', on));
+        });
+
+        // ===== CATEGORY FILTER =====
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const catSections = document.querySelectorAll('.cat-section');
+
+        function filterCat(cat) {
+            filterBtns.forEach(b => {
+                b.classList.toggle('active', b.dataset.cat === cat);
+                b.setAttribute('aria-selected', b.dataset.cat === cat);
+            });
+            catSections.forEach(s => {
+                if (cat === 'all') {
+                    s.classList.add('visible');
+                } else {
+                    s.classList.toggle('visible', s.dataset.cat === cat);
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => filterCat(btn.dataset.cat));
+        });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

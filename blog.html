@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog y Noticias | BotWA Pro</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fab fa-whatsapp"></i> BotWA Pro</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="planes.html">Planes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero-content">
+                    <h1>Blog de <span class="gradient-text">WhatsApp Business</span></h1>
+                    <p>Guías, tutoriales y noticias sobre automatización y marketing por WhatsApp.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-grid" style="padding: 4rem 0;">
+            <div class="container"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <article class="blog-card"
+                    style="background: rgba(255,255,255,0.05); border-radius: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                    <div
+                        style="height: 200px; background: var(--primary-gradient); padding: 2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-robot" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <span
+                            style="color: var(--accent-purple); font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Tutorial</span>
+                        <h3 style="margin-top: 1rem;">Cómo configurar Baileys en tu servidor</h3>
+                        <p style="margin-top: 1rem; color: var(--text-secondary);">Aprende paso a paso cómo desplegar tu
+                            primer bot de WhatsApp usando la librería Baileys.</p>
+                        <a href="#" style="display: inline-block; margin-top: 1.5rem; color: var(--accent-cyan);">Leer
+                            más →</a>
+                    </div>
+                </article>
+                <article class="blog-card"
+                    style="background: rgba(255,255,255,0.05); border-radius: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                    <div
+                        style="height: 200px; background: linear-gradient(135deg, #10b981, #059669); padding: 2rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-shield-alt" style="font-size: 4rem; color: white;"></i>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <span
+                            style="color: #10b981; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;">Seguridad</span>
+                        <h3 style="margin-top: 1rem;">5 Consejos para evitar bloqueos</h3>
+                        <p style="margin-top: 1rem; color: var(--text-secondary);">Descubre las mejores prácticas para
+                            que tus bots operen de forma segura y duradera.</p>
+                        <a href="#" style="display: inline-block; margin-top: 1.5rem; color: var(--accent-cyan);">Leer
+                            más →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
