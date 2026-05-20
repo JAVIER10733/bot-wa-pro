@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Perfil | BotWA Pro</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/cliente.css">
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="brand">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>BotWA Pro</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="mis-bots.html"><i class="fas fa-robot"></i> Mis Bots</a>
+                <a href="facturas.html"><i class="fas fa-file-invoice-dollar"></i> Facturación</a>
+                <a href="perfil.html" class="active"><i class="fas fa-user-circle"></i> Mi Perfil</a>
+                <a href="tickets.html"><i class="fas fa-headset"></i> Soporte</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btn-logout" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button id="toggle-sidebar" class="toggle-btn"><i class="fas fa-bars"></i></button>
+                <div class="user-info">
+                    <span id="user-name">Cargando...</span>
+                    <img id="user-avatar" src="../assets/img/default-avatar.png" alt="Avatar" class="avatar-small">
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="page-header">
+                    <h1>Mi Perfil</h1>
+                    <p>Gestiona tu información personal y preferencias de cuenta.</p>
+                </div>
+
+                <div class="card profile-card">
+                    <div class="card-body">
+                        <form id="profile-form">
+                            <div class="profile-avatar-section">
+                                <img id="profile-avatar-preview" src="../assets/img/default-avatar.png" alt="Avatar"
+                                    class="avatar-large">
+                                <div class="avatar-controls">
+                                    <label for="avatar-url" class="form-label">URL del Avatar</label>
+                                    <input type="url" id="avatar-url" class="input"
+                                        placeholder="https://ejemplo.com/foto.jpg">
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="full-name" class="form-label">Nombre Completo</label>
+                                    <input type="text" id="full-name" class="input" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="profile-email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" id="profile-email" class="input" readonly disabled>
+                                    <span class="form-hint">El correo no puede ser cambiado.</span>
+                                </div>
+                                <div class="form-field">
+                                    <label for="profile-phone" class="form-label">Teléfono</label>
+                                    <input type="tel" id="profile-phone" class="input">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="btn-save-profile">
+                                    <i class="fas fa-save"></i> Guardar Cambios
+                                </button>
+                            </div>
+                            <div id="profile-message" class="message-banner" style="display:none"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card security-card mt-4">
+                    <div class="card-header">
+                        <h2>Seguridad</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>¿Quieres cambiar tu contraseña o mejorar la seguridad de tu cuenta?</p>
+                        <a href="seguridad.html" class="btn btn-outline">Ir a Ajustes de Seguridad</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/api.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            API.requireAuth();
+
+            const el = (id) => document.getElementById(id);
+            const form = el('profile-form');
+            const msgBanner = el('profile-message');
+
+            function showMessage(msg, isError = false) {
+                msgBanner.textContent = msg;
+                msgBanner.className = `message-banner ${isError ? 'error' : 'success'}`;
+                msgBanner.style.display = 'block';
+                setTimeout(() => { msgBanner.style.display = 'none'; }, 3000);
+            }
+
+            async function loadProfile() {
+                try {
+                    const res = await API.auth.me();
+                    if (res?.ok) {
+                        const user = res.data.user;
+                        el('user-name').textContent = user.name;
+                        el('full-name').value = user.name;
+                        el('profile-email').value = user.email;
+                        el('profile-phone').value = user.phone || '';
+
+                        if (user.avatar) {
+                            el('user-avatar').src = user.avatar;
+                            el('profile-avatar-preview').src = user.avatar;
+                            el('avatar-url').value = user.avatar;
+                        }
+                    }
+                } catch (err) {
+                    console.error('Error cargando perfil:', err);
+                }
+            }
+
+            form?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = el('btn-save-profile');
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+
+                const data = {
+                    name: el('full-name').value,
+                    phone: el('profile-phone').value,
+                    avatar: el('avatar-url').value
+                };
+
+                try {
+                    const res = await fetch('/BotWA-Pro/api/v1/auth.php?action=update-profile', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${API.getToken()}`
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    const result = await res.json();
+
+                    if (result.success) {
+                        showMessage('Perfil actualizado con éxito');
+                        // Actualizar UI
+                        el('user-name').textContent = data.name;
+                        if (data.avatar) {
+                            el('user-avatar').src = data.avatar;
+                            el('profile-avatar-preview').src = data.avatar;
+                        }
+                    } else {
+                        showMessage(result.message || 'Error al actualizar', true);
+                    }
+                } catch (err) {
+                    showMessage('Error de conexión', true);
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-save"></i> Guardar Cambios';
+                }
+            });
+
+            // Logout
+            document.getElementById('btn-logout')?.addEventListener('click', () => {
+                API.auth.logout();
+            });
+
+            document.addEventListener('DOMContentLoaded', loadProfile);
+        })();
+    </script>
+</body>
+
+</html>

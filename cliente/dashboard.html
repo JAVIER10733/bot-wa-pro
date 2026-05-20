@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | BotWA Pro</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/cliente.css">
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="brand">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>BotWA Pro</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
+                <a href="mis-bots.html"><i class="fas fa-robot"></i> Mis Bots</a>
+                <a href="facturas.html"><i class="fas fa-file-invoice-dollar"></i> Facturación</a>
+                <a href="perfil.html"><i class="fas fa-user-circle"></i> Mi Perfil</a>
+                <a href="tickets.html"><i class="fas fa-headset"></i> Soporte</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btn-logout" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button id="toggle-sidebar" class="toggle-btn"><i class="fas fa-bars"></i></button>
+                <div class="user-info">
+                    <span id="user-name">Cargando...</span>
+                    <img id="user-avatar" src="../assets/img/default-avatar.png" alt="Avatar" class="avatar-small">
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="welcome-section">
+                    <h1>Bienvenido, <span class="text-primary" id="welcome-name">Usuario</span></h1>
+                    <p>Gestiona tus instancias de WhatsApp y automatizaciones desde aquí.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fas fa-robot"></i></div>
+                        <div class="stat-info">
+                            <h3>Bots Activos</h3>
+                            <p class="stat-value" id="count-bots">0/0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fas fa-paper-plane"></i></div>
+                        <div class="stat-info">
+                            <h3>Mensajes Hoy</h3>
+                            <p class="stat-value" id="count-messages">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
+                        <div class="stat-info">
+                            <h3>Uptime</h3>
+                            <p class="stat-value">99.9%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card main-card">
+                        <div class="card-header">
+                            <h2>Mis Instancias Recientes</h2>
+                            <a href="mis-bots.html" class="btn-link">Ver todos</a>
+                        </div>
+                        <div class="card-body">
+                            <div id="bots-list" class="empty-state">
+                                <i class="fas fa-info-circle"></i>
+                                <p>No tienes bots configurados todavía.</p>
+                                <button class="btn btn-primary mt-2">Crear mi primer Bot</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/api.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            // 1. CAPTURAR TOKEN DE LA URL (Si viene de Google Login)
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+
+            if (token) {
+                // Guardar token
+                API.setToken(token);
+
+                // Intentar obtener info del usuario para completar la sesión
+                // Normalmente el API retorna el user tmb, pero si no, llamamos a /me
+                // Para este flujo simple, limpiaremos la URL inmediatamente
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+
+            // 2. PROTECCIÓN DE RUTA
+            API.requireAuth();
+
+            // 3. CARGAR DATOS
+            async function loadDashboard() {
+                try {
+                    const res = await API.auth.me();
+                    if (res?.ok) {
+                        const user = res.data.user;
+                        document.getElementById('user-name').textContent = user.name;
+                        document.getElementById('welcome-name').textContent = user.name.split(' ')[0];
+                        if (user.avatar) document.getElementById('user-avatar').src = user.avatar;
+
+                        // Guardar usuario en storage si no estaba
+                        localStorage.setItem('botwa_user', JSON.stringify(user));
+                    }
+
+                    // Aquí cargarías más stats...
+
+                } catch (err) {
+                    console.error('Error cargando dashboard:', err);
+                }
+            }
+
+            // 4. LOGOUT
+            document.getElementById('btn-logout')?.addEventListener('click', () => {
+                API.auth.logout();
+            });
+
+            // INIT
+            document.addEventListener('DOMContentLoaded', loadDashboard);
+        })();
+    </script>
+</body>
+
+</html>
