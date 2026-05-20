@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Perfil Admin | BotWA Pro</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="brand">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>BotWA Admin</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="usuarios.html"><i class="fas fa-users"></i> Usuarios</a>
+                <a href="pagos.html"><i class="fas fa-money-bill-wave"></i> Pagos</a>
+                <a href="planes.html"><i class="fas fa-box"></i> Planes</a>
+                <a href="tickets.html"><i class="fas fa-ticket-alt"></i> Soporte</a>
+                <a href="perfil.html" class="active"><i class="fas fa-user-circle"></i> Mi Perfil</a>
+                <a href="configuracion.html"><i class="fas fa-cog"></i> Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btn-logout" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="page-title">
+                    <h1>Mi Perfil Admin</h1>
+                </div>
+                <div class="admin-info">
+                    <span id="admin-name">Admin</span>
+                    <img id="admin-avatar" src="../assets/img/default-avatar.png" alt="Admin" class="avatar-small">
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="card profile-card">
+                    <div class="card-body">
+                        <form id="admin-profile-form">
+                            <div class="profile-avatar-section">
+                                <img id="admin-avatar-preview" src="../assets/img/default-avatar.png" alt="Avatar"
+                                    class="avatar-large">
+                                <div class="avatar-controls">
+                                    <label for="admin-avatar-url" class="form-label">URL del Avatar</label>
+                                    <input type="url" id="admin-avatar-url" class="input"
+                                        placeholder="https://ejemplo.com/foto.jpg">
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="admin-full-name" class="form-label">Nombre Administrativo</label>
+                                    <input type="text" id="admin-full-name" class="input" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="admin-email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" id="admin-email" class="input" readonly disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="btn-save-admin">
+                                    <i class="fas fa-save"></i> Guardar Perfil
+                                </button>
+                            </div>
+                            <div id="admin-profile-message" class="message-banner" style="display:none"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/api.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            API.requireAdmin();
+
+            const el = (id) => document.getElementById(id);
+            const form = el('admin-profile-form');
+            const msgBanner = el('admin-profile-message');
+
+            function showMessage(msg, isError = false) {
+                msgBanner.textContent = msg;
+                msgBanner.className = `message-banner ${isError ? 'error' : 'success'}`;
+                msgBanner.style.display = 'block';
+                setTimeout(() => { msgBanner.style.display = 'none'; }, 3000);
+            }
+
+            async function loadAdminProfile() {
+                try {
+                    const res = await API.auth.me();
+                    if (res?.ok) {
+                        const user = res.data.user;
+                        el('admin-name').textContent = user.name;
+                        el('admin-full-name').value = user.name;
+                        el('admin-email').value = user.email;
+
+                        if (user.avatar) {
+                            el('admin-avatar').src = user.avatar;
+                            el('admin-avatar-preview').src = user.avatar;
+                            el('admin-avatar-url').value = user.avatar;
+                        }
+                    }
+                } catch (err) {
+                    console.error('Error cargando perfil admin:', err);
+                }
+            }
+
+            form?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = el('btn-save-admin');
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+
+                const data = {
+                    name: el('admin-full-name').value,
+                    avatar: el('admin-avatar-url').value
+                };
+
+                try {
+                    const res = await fetch('/BotWA-Pro/api/v1/auth.php?action=update-profile', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${API.getToken()}`
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    const result = await res.json();
+
+                    if (result.success) {
+                        showMessage('Perfil administrativo actualizado');
+                        el('admin-name').textContent = data.name;
+                        if (data.avatar) {
+                            el('admin-avatar').src = data.avatar;
+                            el('admin-avatar-preview').src = data.avatar;
+                        }
+                    } else {
+                        showMessage(result.message || 'Error al actualizar', true);
+                    }
+                } catch (err) {
+                    showMessage('Error de conexión', true);
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-save"></i> Guardar Perfil';
+                }
+            });
+
+            // Logout
+            document.getElementById('btn-logout')?.addEventListener('click', () => {
+                API.auth.logout();
+            });
+
+            document.addEventListener('DOMContentLoaded', loadAdminProfile);
+        })();
+    </script>
+</body>
+
+</html>

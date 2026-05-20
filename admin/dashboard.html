@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard | BotWA Pro</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="brand">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>BotWA Admin</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="usuarios.html"><i class="fas fa-users"></i> Usuarios</a>
+                <a href="pagos.html"><i class="fas fa-money-bill-wave"></i> Pagos</a>
+                <a href="planes.html"><i class="fas fa-box"></i> Planes</a>
+                <a href="tickets.html"><i class="fas fa-ticket-alt"></i> Soporte</a>
+                <a href="configuracion.html"><i class="fas fa-cog"></i> Configuración</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btn-logout" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="page-title">
+                    <h1>Panel de Administración</h1>
+                </div>
+                <div class="admin-info">
+                    <span id="admin-name">Admin</span>
+                    <img src="../assets/img/default-avatar.png" alt="Admin" class="avatar-small">
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="stats-overview">
+                    <div class="stat-box">
+                        <i class="fas fa-users"></i>
+                        <div class="details">
+                            <span class="label">Total Usuarios</span>
+                            <span class="number" id="total-users">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-dollar-sign"></i>
+                        <div class="details">
+                            <span class="label">Ingresos Mes</span>
+                            <span class="number" id="monthly-revenue">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-ticket-alt"></i>
+                        <div class="details">
+                            <span class="label">Tickets Abiertos</span>
+                            <span class="number" id="open-tickets">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin specific charts/tables would go here -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/api.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            // 1. CAPTURAR TOKEN DE LA URL (Si viene de Google Login)
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+
+            if (token) {
+                API.setToken(token);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+
+            // 2. PROTECCIÓN DE RUTA
+            API.requireAdmin();
+
+            // 3. CARGAR DATOS
+            async function loadAdminData() {
+                try {
+                    const res = await API.auth.me();
+                    if (res?.ok) {
+                        document.getElementById('admin-name').textContent = res.data.user.name;
+                    }
+                } catch (err) {
+                    console.error('Error cargando admin data:', err);
+                }
+            }
+
+            // 4. LOGOUT
+            document.getElementById('btn-logout')?.addEventListener('click', () => {
+                API.auth.logout();
+            });
+
+            document.addEventListener('DOMContentLoaded', loadAdminData);
+        })();
+    </script>
+</body>
+
+</html>
