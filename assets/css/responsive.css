@@ -1,0 +1,1322 @@
+/**
+ * BotWA Pro - Responsive Stylesheet
+ * Media queries para tablet, móvil y pequeños dispositivos
+ * @version 1.1.0
+ * @requires: style.css (debe cargarse primero)
+ * @author: BotWA Pro Team
+ */
+
+/* ========================================
+   CONFIGURACIÓN RESPONSIVE
+   ======================================== */
+
+/* Breakpoints base:
+   • Desktop: ≥ 1025px (estilos en style.css)
+   • Tablet: 769px - 1024px
+   • Mobile: 481px - 768px
+   • Small Mobile: ≤ 480px
+*/
+
+/* ========================================
+   TABLET: 769px - 1024px
+   ======================================== */
+@media (max-width: 1024px) {
+  
+  /* Ajuste de variables para tablet */
+  :root {
+    --space-10: 3rem;
+    --space-12: 4rem;
+  }
+  
+  /* Hero Section */
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-8);
+  }
+  
+  .hero-text,
+  .hero-visual {
+    animation: none;
+  }
+  
+  .hero-visual {
+    order: -1; /* Imagen arriba en tablet */
+  }
+  
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons,
+  .trust-badges {
+    justify-content: center;
+  }
+  
+  /* Navbar - Ajustes */
+  nav {
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  .nav-container {
+    gap: var(--space-2);
+  }
+  
+  .logo {
+    font-size: var(--text-xl);
+  }
+  
+  .logo i {
+    font-size: var(--text-2xl);
+  }
+  
+  .nav-links {
+    gap: var(--space-4);
+  }
+  
+  .nav-links a {
+    font-size: var(--text-xs);
+  }
+  
+  .nav-cta {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+  }
+  
+  /* Features Grid */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .feature-card {
+    padding: var(--space-5);
+  }
+  
+  /* Stats Section */
+  .stats {
+    margin: var(--space-4);
+    padding: var(--space-8) var(--space-4);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  
+  .stat-number {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+  
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .testimonial-card {
+    padding: var(--space-5);
+  }
+  
+  /* CTA Section */
+  .cta-content {
+    padding: var(--space-8) var(--space-5);
+  }
+  
+  .cta h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5) var(--space-6);
+  }
+  
+  .footer-section:nth-child(1) {
+    grid-column: 1 / -1;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   MOBILE: 481px - 768px
+   ======================================== */
+@media (max-width: 768px) {
+  
+  /* Ajuste de variables para móvil */
+  :root {
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+  }
+  
+  /* ========================================
+     NAVBAR MOBILE
+     ======================================== */
+  nav {
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  .nav-container {
+    padding: 0;
+  }
+  
+  .logo {
+    font-size: var(--text-xl);
+  }
+  
+  .logo span {
+    display: none; /* Solo ícono en móvil */
+  }
+  
+  .logo i {
+    font-size: var(--text-2xl);
+    margin: 0;
+  }
+  
+  /* Menú hamburguesa */
+  .mobile-menu-toggle {
+    display: flex;
+    padding: var(--space-2);
+    z-index: var(--z-navbar);
+  }
+  
+  .mobile-menu-toggle:focus {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+  }
+  
+  /* Nav Links - Drawer móvil */
+  .nav-links {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: var(--space-6) var(--space-4);
+    gap: var(--space-2);
+    border-left: 1px solid var(--glass-border);
+    transition: right var(--transition-normal) ease;
+    z-index: calc(var(--z-navbar) + 1);
+    overflow-y: auto;
+  }
+  
+  .nav-links.active {
+    display: flex;
+    right: 0;
+  }
+  
+  .nav-links a {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background: var(--glass-bg-hover);
+  }
+  
+  .nav-links a::after {
+    display: none; /* Sin underline en móvil */
+  }
+  
+  /* CTA en menú móvil */
+  .nav-cta {
+    display: inline-flex;
+    margin-top: var(--space-4);
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Overlay para cerrar menú */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-navbar));
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .nav-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* ========================================
+     HERO SECTION MOBILE
+     ======================================== */
+  .hero {
+    padding: calc(var(--space-10) + 3rem) var(--space-4) var(--space-8);
+    min-height: auto;
+  }
+  
+  .hero-content {
+    gap: var(--space-6);
+  }
+  
+  .hero-badge {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-3);
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    line-height: 1.2;
+  }
+  
+  .hero p {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-5);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-3);
+  }
+  
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary,
+  .hero-buttons .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: var(--space-3) var(--space-5);
+  }
+  
+  .trust-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+  }
+  
+  .trust-badges span {
+    font-size: var(--text-xs);
+  }
+  
+  /* Hero Visual - Glass Card */
+  .hero-visual {
+    order: -1;
+    width: 100%;
+  }
+  
+  .glass-card {
+    padding: var(--space-5);
+  }
+  
+  .glass-card h3 {
+    font-size: var(--text-lg);
+    text-align: center;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  
+  .tech-item {
+    padding: var(--space-2) var(--space-3);
+  }
+  
+  .tech-icon {
+    width: 36px;
+    height: 36px;
+    font-size: var(--text-base);
+  }
+  
+  /* ========================================
+     FEATURES SECTION MOBILE
+     ======================================== */
+  .features {
+    padding: var(--space-10) var(--space-4);
+  }
+  
+  .section-header h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  
+  .section-header p {
+    font-size: var(--text-base);
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .feature-card {
+    padding: var(--space-5);
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    font-size: var(--text-xl);
+  }
+  
+  .feature-card h3 {
+    font-size: var(--text-lg);
+  }
+  
+  .feature-card p {
+    font-size: var(--text-sm);
+  }
+  
+  .section-cta .btn-secondary {
+    width: 100%;
+    padding: var(--space-3) var(--space-6);
+  }
+  
+  /* ========================================
+     STATS SECTION MOBILE
+     ======================================== */
+  .stats {
+    margin: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .stat-card {
+    padding: var(--space-3);
+  }
+  
+  .stat-number {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
+  .stat-label {
+    font-size: var(--text-xs);
+  }
+  
+  /* ========================================
+     TESTIMONIALS SECTION MOBILE
+     ======================================== */
+  .testimonials {
+    padding: var(--space-10) var(--space-4);
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .testimonial-card {
+    padding: var(--space-5);
+  }
+  
+  .testimonial-content {
+    font-size: var(--text-sm);
+  }
+  
+  .testimonial-author {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-2);
+  }
+  
+  .author-avatar {
+    width: 45px;
+    height: 45px;
+    font-size: var(--text-base);
+  }
+  
+  .author-info h4 {
+    font-size: var(--text-sm);
+  }
+  
+  .author-info p {
+    font-size: var(--text-xs);
+  }
+  
+  .author-badge {
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  /* ========================================
+     CTA SECTION MOBILE
+     ======================================== */
+  .cta {
+    padding: var(--space-10) var(--space-4);
+  }
+  
+  .cta-content {
+    padding: var(--space-6) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+  
+  .cta h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  
+  .cta p {
+    font-size: var(--text-base);
+  }
+  
+  .cta .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .cta .btn-primary,
+  .cta .btn-secondary,
+  .cta .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* ========================================
+     FOOTER MOBILE
+     ======================================== */
+  footer {
+    padding: var(--space-6) var(--space-4) var(--space-4);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    text-align: center;
+  }
+  
+  .footer-section {
+    align-items: center;
+  }
+  
+  .footer-section .logo {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+  }
+  
+  .footer-section .logo span {
+    display: inline; /* Mostrar texto en footer */
+  }
+  
+  .footer-section > p {
+    max-width: 300px;
+  }
+  
+  .footer-section h4 {
+    margin-top: var(--space-2);
+  }
+  
+  .footer-section ul {
+    align-items: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+    margin-top: var(--space-3);
+  }
+  
+  .social-links a {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+  }
+  
+  .footer-bottom p {
+    font-size: var(--text-xs);
+  }
+  
+  .payment-icons {
+    gap: var(--space-2);
+  }
+  
+  .payment-icons img {
+    height: 20px;
+  }
+  
+  /* ========================================
+     TOAST MOBILE
+     ======================================== */
+  .toast {
+    left: var(--space-4);
+    right: var(--space-4);
+    max-width: none;
+    bottom: var(--space-3);
+    padding: var(--space-3);
+  }
+  
+  .toast-message {
+    font-size: var(--text-xs);
+  }
+  
+  /* ========================================
+     FORMULARIOS MOBILE
+     ======================================== */
+  .input {
+    padding: var(--space-3);
+    font-size: var(--text-base); /* Evita zoom en iOS */
+  }
+  
+  .form-field {
+    margin-bottom: var(--space-4);
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-whatsapp {
+    min-height: 48px; /* Área táctil mínima */
+  }
+  
+  /* ========================================
+     UTILIDADES MOBILE
+     ======================================== */
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE: ≤ 480px
+   ======================================== */
+@media (max-width: 480px) {
+  
+  /* Ajustes extra para pantallas pequeñas */
+  :root {
+    --space-4: 0.875rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: calc(var(--space-8) + 2rem) var(--space-3) var(--space-6);
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+  
+  .hero-badge {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-xs);
+  }
+  
+  /* Glass Card en hero */
+  .glass-card {
+    padding: var(--space-4);
+  }
+  
+  .tech-item {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+  
+  .tech-name {
+    font-size: var(--text-xs);
+  }
+  
+  .tech-desc {
+    display: none; /* Ocultar descripción en pantallas muy pequeñas */
+  }
+  
+  /* Features */
+  .feature-card {
+    padding: var(--space-4);
+  }
+  
+  .feature-icon {
+    width: 45px;
+    height: 45px;
+    font-size: var(--text-lg);
+  }
+  
+  /* Stats */
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  /* Testimonials */
+  .testimonial-card {
+    padding: var(--space-4);
+  }
+  
+  .rating {
+    gap: 2px;
+  }
+  
+  .rating i {
+    font-size: var(--text-xs);
+  }
+  
+  /* Footer */
+  .footer-section ul li a {
+    font-size: var(--text-xs);
+    padding: var(--space-1) 0;
+  }
+  
+  .footer-bottom {
+    font-size: var(--text-xs);
+  }
+  
+  /* Toast */
+  .toast {
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+  }
+  
+  .toast-icon {
+    width: 24px;
+    height: 24px;
+    font-size: var(--text-xs);
+  }
+  
+  /* ========================================
+     ACCESIBILIDAD EN MÓVIL
+     ======================================== */
+  /* Aumentar áreas táctiles */
+  a, button, .nav-links a, .social-links a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Evitar zoom accidental en inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Mejorar contraste en modo alto contraste */
+  @media (prefers-contrast: high) {
+    .glass-card,
+    .feature-card,
+    .testimonial-card,
+    .cta-content {
+      border-width: 2px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+/* ========================================
+   ORIENTACIÓN: LANDSCAPE EN MÓVIL
+   ======================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  
+  /* Ajustes para móvil en horizontal */
+  .hero {
+    min-height: auto;
+    padding: calc(var(--space-8) + 2rem) var(--space-4) var(--space-6);
+  }
+  
+  .hero-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links {
+    width: 240px;
+    max-height: 100vh;
+  }
+  
+  /* Ocultar elementos no esenciales */
+  .trust-badges,
+  .tech-desc {
+    display: none;
+  }
+}
+
+/* ========================================
+   PRINT STYLES (Impresión) - MEJORADO
+   ======================================== */
+@media print {
+  
+  /* Ocultar elementos interactivos */
+  .bg-animation,
+  .loader,
+  .scroll-progress,
+  .toast,
+  .mobile-menu-toggle,
+  .nav-cta,
+  .hero-buttons,
+  .testimonials-controls,
+  .testimonials-indicators,
+  .testimonials-autoplay,
+  .social-links,
+  .payment-icons {
+    display: none !important;
+  }
+  
+  /* Resetear fondo y colores para impresión */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Navbar simplificado */
+  nav {
+    position: static !important;
+    background: #fff !important;
+    border-bottom: 2px solid #000 !important;
+    padding: 1rem !important;
+    color: #000 !important;
+  }
+  
+  .logo {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+    background: none !important;
+  }
+  
+  .nav-links {
+    display: none !important;
+  }
+  
+  /* Contenido principal */
+  main {
+    padding: 2rem 0 !important;
+  }
+  
+  .glass-card,
+  .feature-card,
+  .testimonial-card,
+  .cta-content {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    color: #000 !important;
+  }
+  
+  /* Texto y enlaces */
+  h1, h2, h3, h4 {
+    color: #000 !important;
+    page-break-after: avoid;
+  }
+  
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  /* Evitar saltos de página en cards */
+  .feature-card,
+  .testimonial-card,
+  .stat-card {
+    page-break-inside: avoid;
+  }
+  
+  /* Footer simplificado */
+  footer {
+    border-top: 1px solid #ccc !important;
+    padding-top: 1rem !important;
+    color: #666 !important;
+  }
+  
+  footer a {
+    color: #666 !important;
+  }
+  
+  /* Stats en impresión */
+  .stat-number {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+    background: none !important;
+  }
+}
+
+/* ========================================
+   UTILIDADES RESPONSIVE
+   ======================================== */
+
+/* Visibilidad por breakpoint */
+@media (min-width: 1025px) {
+  .hide-desktop { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  .hide-tablet { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
+
+@media (max-width: 480px) {
+  .hide-small { display: none !important; }
+}
+
+/* Texto responsive */
+.text-responsive-sm {
+  font-size: clamp(var(--text-sm), 2.5vw, var(--text-base));
+}
+
+.text-responsive-lg {
+  font-size: clamp(var(--text-xl), 4vw, var(--text-3xl));
+}
+
+/* Espaciado responsive */
+.py-responsive {
+  padding-top: clamp(var(--space-8), 8vw, var(--space-12));
+  padding-bottom: clamp(var(--space-8), 8vw, var(--space-12));
+}
+
+/* ========================================
+   PERFORMANCE: Contain para móvil
+   ======================================== */
+@media (max-width: 768px) {
+  .feature-card,
+  .testimonial-card,
+  .glass-card {
+    contain: content;
+  }
+  
+  /* Desactivar animaciones pesadas en móvil */
+  .floating-orb {
+    animation: none !important;
+    opacity: 0.2 !important;
+  }
+  
+  .glass-card::before,
+  .cta-content::before {
+    animation: none !important;
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: HIGH DPI / RETINA SUPPORT
+   ======================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimizar sombras para pantallas retina */
+  .glass-card,
+  .feature-card,
+  .testimonial-card,
+  .cta-content {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+  
+  .glass-card:hover,
+  .feature-card:hover,
+  .testimonial-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Mejorar nitidez de bordes */
+  .glass-card,
+  .feature-card,
+  .testimonial-card {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: DARK MODE AUTO-SUPPORT
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+  /* Ajustes sutiles para modo oscuro automático */
+  .glass-card,
+  .feature-card,
+  .testimonial-card,
+  .cta-content {
+    background: rgba(26, 26, 46, 0.8);
+    border-color: rgba(139, 92, 246, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .glass-card:hover,
+  .feature-card:hover,
+  .testimonial-card:hover {
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+  }
+  
+  /* Ajustar contraste de texto */
+  .testimonial-content,
+  .feature-card p,
+  .author-info p {
+    color: #cbd5e1;
+  }
+  
+  /* Mejorar visibilidad de iconos */
+  .feature-icon,
+  .tech-icon,
+  .author-avatar {
+    filter: brightness(1.1);
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: ACCESSIBILITY - REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  /* Desactivar todas las transiciones y animaciones */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Elementos específicos */
+  .floating-orb,
+  .glass-card::before,
+  .cta-content::before,
+  .feature-card::before,
+  .nav-links,
+  .nav-overlay {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Hover states sin transformación */
+  .feature-card:hover,
+  .testimonial-card:hover,
+  .tech-item:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-whatsapp:hover,
+  .nav-cta:hover {
+    transform: none !important;
+  }
+  
+  /* Scroll progress sin transición */
+  .scroll-progress {
+    transition: none !important;
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: MOBILE MENU UTILITIES (JS Hooks)
+   ======================================== */
+
+/* Clase para activar menú móvil vía JS */
+.nav-mobile-active .nav-links {
+  display: flex !important;
+  right: 0 !important;
+}
+
+.nav-mobile-active .nav-overlay {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.nav-mobile-active .mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-mobile-active .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-mobile-active .mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Botón hamburger - estilos base (si no existe en style.css) */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-1);
+  cursor: pointer;
+  padding: var(--space-2);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus {
+  background: var(--glass-bg-hover);
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+}
+
+/* Mostrar toggle solo en móvil */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: FORMULARIOS RESPONSIVE ENHANCEMENTS
+   ======================================== */
+
+/* Inputs más grandes en móvil para mejor UX táctil */
+@media (max-width: 768px) {
+  .input,
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  textarea,
+  select {
+    min-height: 48px;
+    font-size: 16px; /* Previene zoom automático en iOS */
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  /* Labels más legibles */
+  .form-label {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+  }
+  
+  /* Mensajes de error/hint */
+  .form-error,
+  .form-hint {
+    font-size: var(--text-xs);
+    padding: var(--space-1) 0;
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: LAZY LOAD PLACEHOLDERS
+   ======================================== */
+
+/* Placeholder visual para imágenes lazy-loaded */
+.img-placeholder {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Animación de fade-in para imágenes cargadas */
+img[loading="lazy"] {
+  transition: opacity var(--transition-normal);
+  opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* ========================================
+   ✨ NUEVO: TOUCH OPTIMIZATIONS
+   ======================================== */
+
+/* Mejorar experiencia táctil en móviles */
+@media (hover: none) and (pointer: coarse) {
+  /* Aumentar áreas de toque */
+  a,
+  button,
+  .nav-links a,
+  .social-links a,
+  .feature-card,
+  .testimonial-card {
+    min-height: 48px;
+    min-width: 48px;
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  /* Eliminar hover states que no funcionan en touch */
+  .feature-card:hover,
+  .testimonial-card:hover,
+  .tech-item:hover {
+    transform: none;
+  }
+  
+  /* Feedback visual al tocar */
+  a:active,
+  button:active,
+  .nav-links a:active {
+    opacity: 0.85;
+  }
+  
+  /* Scroll suave desactivado en touch para mejor rendimiento */
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: NETWORK-AWARE OPTIMIZATIONS
+   ======================================== */
+
+/* Reducir peso visual en conexiones lentas */
+@media (max-width: 768px) {
+  @media (connection: slow), (connection: 2g), (connection: 3g) {
+    /* Desactivar animaciones de fondo */
+    .bg-animation,
+    .floating-orb {
+      display: none;
+    }
+    
+    /* Simplificar gradientes */
+    .glass-card,
+    .feature-card,
+    .testimonial-card {
+      background: var(--dark-bg-alt);
+      backdrop-filter: none;
+    }
+    
+    /* Reducir sombras */
+    .glass-card,
+    .feature-card,
+    .testimonial-card,
+    .cta-content {
+      box-shadow: none;
+    }
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: PRINT ENHANCEMENTS FOR CARDS
+   ======================================== */
+
+@media print {
+  /* Asegurar que las cards no se corten entre páginas */
+  .feature-card,
+  .testimonial-card,
+  .stat-card,
+  .tech-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  /* Mostrar URLs de enlaces importantes */
+  .btn-primary[href]::after,
+  .btn-secondary[href]::after,
+  .btn-whatsapp[href]::after {
+    content: " → " attr(href);
+    font-size: 0.8em;
+    color: #666;
+    margin-left: 0.5rem;
+  }
+  
+  /* Ocultar elementos decorativos */
+  .gradient-text {
+    background: none !important;
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+  
+  .trust-badges i {
+    display: none;
+  }
+}
+
+/* ========================================
+   ✨ NUEVO: UTILITIES PARA DEBUG/DEV
+   ======================================== */
+
+/* Solo en desarrollo: mostrar breakpoints */
+@media (max-width: 480px) {
+  .debug-breakpoint::before {
+    content: "📱 Mobile ≤480px";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #ef4444;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    z-index: 99999;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .debug-breakpoint::before {
+    content: "📱 Mobile 481-768px";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #f59e0b;
+    color: #000;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    z-index: 99999;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .debug-breakpoint::before {
+    content: "📟 Tablet 769-1024px";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #3b82f6;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    z-index: 99999;
+  }
+}
+
+@media (min-width: 1025px) {
+  .debug-breakpoint::before {
+    content: "💻 Desktop ≥1025px";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #22c55e;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    z-index: 99999;
+  }
+}
+
+/* ========================================
+   NOTAS DE IMPLEMENTACIÓN
+   ======================================== */
+/* 
+  • Este archivo DEBE cargarse DESPUÉS de style.css
+  • Las variables CSS (--space-*, --text-*, etc.) se heredan de :root en style.css
+  • Para desactivar utilidades de debug en producción, elimina la sección "UTILITIES PARA DEBUG/DEV"
+  • Las optimizaciones de red (connection: slow) requieren soporte del navegador (Chrome/Edge)
+  • Para dark mode automático, asegúrate de que style.css tenga variables compatibles
+*/
