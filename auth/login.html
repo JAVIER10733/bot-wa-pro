@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Acceder | BotWA Pro</title>
+    <meta name="description"
+        content="Inicia sesión en tu cuenta de BotWA Pro para gestionar tus servidores y bots de WhatsApp.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header role="banner">
+            <a href="../index.html" class="brand" aria-label="BotWA Pro - Inicio">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                <span>BotWA Pro</span>
+            </a>
+            <nav class="nav" aria-label="Navegación principal" role="navigation">
+                <a href="../index.html">Inicio</a>
+                <a href="../servicios.html">Servicios</a>
+                <a href="../planes.html">Planes</a>
+                <a href="../contacto.html">Contacto</a>
+                <a class="cta" href="register.html">Comenzar</a>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <main id="main-content" role="main">
+            <section class="auth-section" aria-labelledby="login-title">
+                <div class="auth-wrapper">
+
+                    <!-- Card de Login -->
+                    <article class="card auth-card" role="region" aria-labelledby="login-title">
+
+                        <header class="auth-header">
+                            <h1 id="login-title" class="auth-title">Bienvenido de nuevo</h1>
+                            <p class="auth-subtitle">Ingresa tus credenciales para acceder a tu panel</p>
+                        </header>
+
+                        <!-- Formulario -->
+                        <form id="login-form" class="auth-form" novalidate autocomplete="on">
+
+                            <!-- Email -->
+                            <div class="form-field">
+                                <label for="email" class="form-label">
+                                    <span class="label-text">Correo electrónico</span>
+                                    <span class="label-required" aria-hidden="true">*</span>
+                                </label>
+                                <input class="input" id="email" name="email" type="email" inputmode="email"
+                                    autocomplete="email" required aria-required="true" aria-describedby="email-error"
+                                    placeholder="tu@email.com">
+                                <span id="email-error" class="form-error" role="alert" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Contraseña -->
+                            <div class="form-field">
+                                <label for="password" class="form-label">
+                                    <span class="label-text">Contraseña</span>
+                                    <span class="label-required" aria-hidden="true">*</span>
+                                </label>
+                                <div class="password-wrapper">
+                                    <input class="input" id="password" name="password" type="password"
+                                        autocomplete="current-password" required aria-required="true"
+                                        aria-describedby="password-error password-hint" placeholder="••••••••"
+                                        minlength="8">
+                                    <button type="button" class="password-toggle" aria-label="Mostrar contraseña"
+                                        aria-pressed="false" tabindex="-1">
+                                        <i class="fas fa-eye" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <span id="password-error" class="form-error" role="alert" aria-live="polite"></span>
+                                <span id="password-hint" class="form-hint">Mínimo 8 caracteres</span>
+                            </div>
+
+                            <!-- Recordar + Olvidé -->
+                            <div class="form-options">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="remember" id="remember">
+                                    <span class="checkbox-custom" aria-hidden="true"></span>
+                                    <span class="checkbox-label">Recordarme</span>
+                                </label>
+                                <a href="recuperar-password.html" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                            </div>
+
+                            <!-- Submit -->
+                            <button type="submit" class="auth-submit" id="submit-btn">
+                                <span class="btn-text">Entrar</span>
+                                <span class="btn-loading" aria-hidden="true">
+                                    <svg class="spinner" viewBox="0 0 24 24" width="20" height="20">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"
+                                            fill="none" opacity="0.25" />
+                                        <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3"
+                                            fill="none" stroke-linecap="round" />
+                                    </svg>
+                                    Procesando...
+                                </span>
+                            </button>
+
+                            <!-- Error global -->
+                            <div id="form-error" class="form-error global" role="alert" aria-live="assertive"></div>
+
+                        </form>
+
+                        <!-- Divider -->
+                        <div class="auth-divider" aria-hidden="true">
+                            <span>o continúa con</span>
+                        </div>
+
+                        <!-- Social Login -->
+                        <div class="social-login">
+                            <button type="button" class="social-btn google" id="btn-google"
+                                aria-label="Continuar con Google">
+                                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                                    <path fill="#4285F4"
+                                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                    <path fill="#34A853"
+                                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                    <path fill="#FBBC05"
+                                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                    <path fill="#EA4335"
+                                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                </svg>
+                                <span>Google</span>
+                            </button>
+
+                            <button type="button" class="social-btn github" id="btn-github"
+                                aria-label="Continuar con GitHub">
+                                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                                <span>GitHub</span>
+                            </button>
+                        </div>
+
+                        <footer class="auth-footer">
+                            <p>¿No tienes cuenta? <a href="registro.html" class="link-primary">Regístrate gratis</a></p>
+                        </footer>
+
+                    </article>
+
+                    <!-- Info lateral -->
+                    <aside class="auth-info" aria-hidden="true">
+                        <div class="auth-info-content">
+                            <h2>¿Por qué BotWA Pro?</h2>
+                            <ul>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Servidores de alto rendimiento</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Soporte técnico 24/7</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Panel de control intuitivo</li>
+                                <li><i class="fas fa-check" aria-hidden="true"></i> Garantía de uptime 99.9%</li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer role="contentinfo">
+            <div class="footer-content">
+                <div>
+                    <strong>BotWA Pro</strong>
+                    <div style="color:var(--muted);font-size:0.875rem">© <span id="currentYear">2025</span> BotWA Pro.
+                        Todos los derechos reservados.</div>
+                </div>
+                <nav aria-label="Enlaces legales" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+                    <a href="../cookies.html">Cookies</a>
+                    <a href="../terminos.html">Términos</a>
+                    <a href="../privacidad.html">Privacidad</a>
+                    <a href="../soporte.html">Soporte</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JS -->
+    <script src="../assets/js/api.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            const BASE = '/BotWA-Pro/api/v1';
+            const STORAGE = 'botwa_remembered_email';
+
+            // ============================================
+            // UTILIDADES
+            // ============================================
+            const $ = (sel) => document.querySelector(sel);
+            const el = (id) => document.getElementById(id);
+
+            function showError(field, msg) {
+                const span = el(`${field}-error`);
+                if (span) { span.textContent = msg; span.style.display = 'block'; }
+                const input = $(`#${field}`);
+                if (input) input.setAttribute('aria-invalid', 'true');
+            }
+
+            function clearError(field) {
+                const span = el(`${field}-error`);
+                if (span) { span.textContent = ''; span.style.display = 'none'; }
+                const input = $(`#${field}`);
+                if (input) input.removeAttribute('aria-invalid');
+            }
+
+            function showGlobalError(msg) {
+                const div = el('form-error');
+                if (div) { div.textContent = msg; div.style.display = 'block'; }
+            }
+
+            function clearGlobalError() {
+                const div = el('form-error');
+                if (div) { div.textContent = ''; div.style.display = 'none'; }
+            }
+
+            function setLoading(on) {
+                const btn = el('submit-btn');
+                if (!btn) return;
+                btn.disabled = on;
+                btn.classList.toggle('is-loading', on);
+            }
+
+            function validateEmail(v) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            }
+
+            // ============================================
+            // RECORDAR EMAIL
+            // ============================================
+            function loadRemembered() {
+                const saved = localStorage.getItem(STORAGE);
+                if (saved) {
+                    const emailInput = el('email');
+                    const rememberCheck = el('remember');
+                    if (emailInput) emailInput.value = saved;
+                    if (rememberCheck) rememberCheck.checked = true;
+                }
+            }
+
+            // ============================================
+            // TOGGLE CONTRASEÑA
+            // ============================================
+            function setupPasswordToggle() {
+                const toggle = $('.password-toggle');
+                const input = el('password');
+                if (!toggle || !input) return;
+
+                toggle.addEventListener('click', () => {
+                    const show = input.type === 'password';
+                    input.type = show ? 'text' : 'password';
+                    toggle.setAttribute('aria-pressed', show.toString());
+                    toggle.setAttribute('aria-label', show ? 'Ocultar contraseña' : 'Mostrar contraseña');
+                    toggle.querySelector('i').className = show ? 'fas fa-eye-slash' : 'fas fa-eye';
+                    input.focus();
+                });
+            }
+
+            // ============================================
+            // VALIDACIÓN EN TIEMPO REAL
+            // ============================================
+            function setupValidation() {
+                const emailInput = el('email');
+                const passwordInput = el('password');
+
+                emailInput?.addEventListener('blur', () => {
+                    if (emailInput.value && !validateEmail(emailInput.value)) {
+                        showError('email', 'Ingresa un correo electrónico válido');
+                    } else {
+                        clearError('email');
+                    }
+                });
+
+                passwordInput?.addEventListener('blur', () => {
+                    if (passwordInput.value && passwordInput.value.length < 8) {
+                        showError('password', 'La contraseña debe tener al menos 8 caracteres');
+                    } else {
+                        clearError('password');
+                    }
+                });
+
+                emailInput?.addEventListener('input', () => clearError('email'));
+                passwordInput?.addEventListener('input', () => { clearError('password'); clearGlobalError(); });
+            }
+
+            // ============================================
+            // SUBMIT: conectado a API PHP
+            // ============================================
+            function setupForm() {
+                const form = el('login-form');
+                if (!form) return;
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    clearGlobalError();
+                    clearError('email');
+                    clearError('password');
+
+                    const email = el('email').value.trim();
+                    const password = el('password').value;
+                    const remember = el('remember').checked;
+                    let error = false;
+
+                    if (!validateEmail(email)) {
+                        showError('email', 'Ingresa un correo electrónico válido');
+                        error = true;
+                    }
+                    if (password.length < 8) {
+                        showError('password', 'La contraseña debe tener al menos 8 caracteres');
+                        error = true;
+                    }
+                    if (error) return;
+
+                    setLoading(true);
+
+                    try {
+                        const res = await fetch(`${BASE}/auth.php?action=login`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email, password })
+                        });
+                        const data = await res.json();
+
+                        if (!res.ok || !data.success) {
+                            throw new Error(data.message || 'Credenciales incorrectas');
+                        }
+
+                        // Guardar token
+                        localStorage.setItem('botwa_token', data.token);
+                        localStorage.setItem('botwa_user', JSON.stringify(data.user));
+
+                        // Guardar email si marcó recordar
+                        if (remember) {
+                            localStorage.setItem(STORAGE, email);
+                        } else {
+                            localStorage.removeItem(STORAGE);
+                        }
+
+                        // Redirigir según rol
+                        const redirect = data.user.role === 'admin'
+                            ? '/BotWA-Pro/admin/dashboard.html'
+                            : '/BotWA-Pro/cliente/dashboard.html';
+
+                        setTimeout(() => { window.location.href = redirect; }, 300);
+
+                    } catch (err) {
+                        showGlobalError(err.message || 'Error de conexión. Intenta de nuevo.');
+                        setLoading(false);
+                    }
+                });
+            }
+
+            // ============================================
+            // GOOGLE LOGIN
+            // ============================================
+            function setupGoogleLogin() {
+                el('btn-google')?.addEventListener('click', () => {
+                    window.location.href = '/BotWA-Pro/api/v1/google_auth.php?action=redirect';
+                });
+            }
+
+            // ============================================
+            // GITHUB LOGIN
+            // ============================================
+            function setupGithubLogin() {
+                el('btn-github')?.addEventListener('click', () => {
+                    window.location.href = '/BotWA-Pro/api/v1/github_auth.php?action=redirect';
+                });
+            }
+
+            // ============================================
+            // AÑO EN FOOTER
+            // ============================================
+            function setYear() {
+                const y = el('currentYear');
+                if (y) y.textContent = new Date().getFullYear();
+            }
+
+            // ============================================
+            // CAPTURAR ERROR DE GOOGLE DESDE URL
+            // ============================================
+            function checkUrlParams() {
+                const params = new URLSearchParams(window.location.search);
+                const error = params.get('error');
+                if (error) {
+                    const msgs = {
+                        google_cancelled: 'Cancelaste el inicio de sesión con Google.',
+                        google_failed: 'Error al conectar con Google. Intenta de nuevo.',
+                        github_failed: 'Error al conectar con GitHub. Intenta de nuevo.',
+                        account_banned: 'Tu cuenta está suspendida. Contacta al soporte.'
+                    };
+                    showGlobalError(msgs[error] || 'Ocurrió un error. Intenta de nuevo.');
+                    window.history.replaceState({}, '', window.location.pathname);
+                }
+            }
+
+            // ============================================
+            // INIT
+            // ============================================
+            function init() {
+                setYear();
+                loadRemembered();
+                setupPasswordToggle();
+                setupValidation();
+                setupForm();
+                setupGoogleLogin();
+                setupGithubLogin();
+                checkUrlParams();
+                el('email')?.focus();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+
+        })();
+    </script>
+
+</body>
+
+</html>
